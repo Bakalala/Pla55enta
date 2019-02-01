@@ -29,8 +29,7 @@ volatile bool exit_key = false;
 int time = 30;
 int Canister = 7;
 int balls = 5;
-int InitialState[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // Initial State -1 no info, 0 empty, 1 ball
-int FinalState[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // Final Error -1 no info, 0 empty, 1 ball
+int State[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // Final Error -1 no info, 0 empty, 1 ball
 int DistanceCanister[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // -1 No info, int distance in cm
 int BallDispensed[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // -1 No info, 0 No ball dispensed, 1 Ball dispensed
     
@@ -116,13 +115,59 @@ void main(void) {
         
         if(key_was_pressed){
             
-            lcd_clear();
             unsigned char keypress = (PORTB & 0xF0) >> 4;
-            printf("Cansiter %c", keys[keypress]);
-            lcd_set_ddram_addr(LCD_LINE3_ADDR);
-            printf("Distance %d cm", DistanceCanister[(int) (keys[keypress] - '0')] );
+            int miniTick = 0;
+            int miniState = 0;
+            int miniClear = 1;
+
+            while(!exit_key) {  
             
-            while(!exit_key) { continue ;}
+                if (miniState == 0 & miniClear == 1) {
+            
+                    lcd_clear();
+                    printf("Cansiter %c", keys[keypress]);
+                    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+                    printf("Distance %d cm", DistanceCanister[(int) (keys[keypress] - '0')] );
+                    miniClear = 0;
+                }
+                
+                if (miniState == 1 & miniClear == 1) {
+            
+                    lcd_clear();
+                    printf("Cansiter %c", keys[keypress]);
+                    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+                    if (State[(int) (keys[keypress] - '0') == 1])
+                        printf("Canister Full");
+                    else
+                        printf("Canister Empty");
+                    miniClear = 0;
+                }
+                
+                if (miniState == 2 & miniClear == 1) {
+            
+                    lcd_clear();
+                    printf("Cansiter %c", keys[keypress]);
+                    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+                    if (BallDispensed[(int) (keys[keypress] - '0') == 1])
+                        printf("Ball Added");
+                    else
+                        printf("No Ball Added");                    
+                    miniClear = 0;
+                }
+                
+                if (miniTick == 2000) {
+                    miniClear = 1;
+                    miniState++;
+                    miniState = miniState % 3; //make sure status is between 0 and 3
+                    miniTick = 0;
+                }
+    
+                miniTick++;
+                __delay_ms(1);
+            
+            
+            }
+            
             key_was_pressed = false; // Clear the flag
             exit_key = false;
             

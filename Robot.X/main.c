@@ -128,6 +128,7 @@ void main(void) {
                     printf("Cansiter %c", keys[keypress]);
                     lcd_set_ddram_addr(LCD_LINE3_ADDR);
                     printf("Distance %d cm", DistanceCanister[(int) (keys[keypress] - '0')] );
+                    lcd_set_ddram_addr(LCD_LINE4_ADDR);             
                     printf("* to exit");                    
                     miniClear = 0;
                 }
@@ -141,6 +142,7 @@ void main(void) {
                         printf("Canister Full");
                     else
                         printf("Canister Empty");
+                    lcd_set_ddram_addr(LCD_LINE4_ADDR);                    
                     printf("* to exit");                    
                     miniClear = 0;
                 }

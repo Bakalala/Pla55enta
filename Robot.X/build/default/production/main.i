@@ -5301,6 +5301,7 @@ void main(void) {
                     printf("Cansiter %c", keys[keypress]);
                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
                     printf("Distance %d cm", DistanceCanister[(int) (keys[keypress] - '0')] );
+                    printf("* to exit");
                     miniClear = 0;
                 }
 
@@ -5313,6 +5314,7 @@ void main(void) {
                         printf("Canister Full");
                     else
                         printf("Canister Empty");
+                    printf("* to exit");
                     miniClear = 0;
                 }
 
@@ -5325,6 +5327,10 @@ void main(void) {
                         printf("Ball Added");
                     else
                         printf("No Ball Added");
+                    { lcdInst(0x80 | LCD_LINE4_ADDR);};
+                    printf("* to exit");
+
+
                     miniClear = 0;
                 }
 

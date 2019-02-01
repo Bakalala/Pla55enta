@@ -5293,6 +5293,8 @@ void main(void) {
             int miniState = 0;
             int miniClear = 1;
 
+            int number_pressed = (int) (keys[keypress] - '0');
+
             while(!exit_key) {
 
                 if (miniState == 0 & miniClear == 1) {
@@ -5300,7 +5302,7 @@ void main(void) {
                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
                     printf("Cansiter %c", keys[keypress]);
                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
-                    printf("Distance %d cm", DistanceCanister[(int) (keys[keypress] - '0')] );
+                    printf("Distance %d cm", DistanceCanister[number_pressed] );
                     printf("* to exit");
                     miniClear = 0;
                 }
@@ -5310,10 +5312,11 @@ void main(void) {
                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
                     printf("Cansiter %c", keys[keypress]);
                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
-                    if (State[(int) (keys[keypress] - '0') == 1])
+                    if (State[number_pressed] == 1)
                         printf("Canister Full");
                     else
                         printf("Canister Empty");
+                    { lcdInst(0x80 | LCD_LINE4_ADDR);};
                     printf("* to exit");
                     miniClear = 0;
                 }
@@ -5323,7 +5326,7 @@ void main(void) {
                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
                     printf("Cansiter %c", keys[keypress]);
                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
-                    if (BallDispensed[(int) (keys[keypress] - '0') == 1])
+                    if (BallDispensed[number_pressed] == 1)
                         printf("Ball Added");
                     else
                         printf("No Ball Added");

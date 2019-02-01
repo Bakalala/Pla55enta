@@ -119,6 +119,8 @@ void main(void) {
             int miniTick = 0;
             int miniState = 0;
             int miniClear = 1;
+            
+            int number_pressed = (int) (keys[keypress] - '0');
 
             while(!exit_key) {  
             
@@ -127,7 +129,7 @@ void main(void) {
                     lcd_clear();
                     printf("Cansiter %c", keys[keypress]);
                     lcd_set_ddram_addr(LCD_LINE3_ADDR);
-                    printf("Distance %d cm", DistanceCanister[(int) (keys[keypress] - '0')] );
+                    printf("Distance %d cm", DistanceCanister[number_pressed] );
                     lcd_set_ddram_addr(LCD_LINE4_ADDR);             
                     printf("* to exit");                    
                     miniClear = 0;
@@ -138,7 +140,7 @@ void main(void) {
                     lcd_clear();
                     printf("Cansiter %c", keys[keypress]);
                     lcd_set_ddram_addr(LCD_LINE3_ADDR);
-                    if (State[(int) (keys[keypress] - '0') == 1])
+                    if (State[number_pressed] == 1)
                         printf("Canister Full");
                     else
                         printf("Canister Empty");
@@ -152,7 +154,7 @@ void main(void) {
                     lcd_clear();
                     printf("Cansiter %c", keys[keypress]);
                     lcd_set_ddram_addr(LCD_LINE3_ADDR);
-                    if (BallDispensed[(int) (keys[keypress] - '0') == 1])
+                    if (BallDispensed[number_pressed] == 1)
                         printf("Ball Added");
                     else
                         printf("No Ball Added"); 

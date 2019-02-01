@@ -125,6 +125,7 @@ void main(void) {
             while(!exit_key) { continue ;}
             key_was_pressed = false; // Clear the flag
             exit_key = false;
+            
         }
         
         if (tick == 2000) {

@@ -88,6 +88,11 @@ void main(void) {
 
     
     
+    lcd_clear();
+    printf("Canister Index");
+    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+    printf("starts at 0");
+    __delay_ms(4000);
     
     
     // Finish loop

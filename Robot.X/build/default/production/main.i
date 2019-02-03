@@ -5261,6 +5261,11 @@ void main(void) {
 
 
 
+    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+    printf("Canister Index");
+    { lcdInst(0x80 | LCD_LINE3_ADDR);};
+    printf("starts at 0");
+    _delay((unsigned long)((4000)*(10000000/4000.0)));
 
 
 

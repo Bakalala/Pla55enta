@@ -63,8 +63,10 @@ void main(void) {
     
     lcd_display_control(true, false, false);
     lcd_clear();
-    printf("A to start");
-    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+    printf("Press A");
+    lcd_set_ddram_addr(LCD_LINE2_ADDR);
+    printf("to start");
+    lcd_set_ddram_addr(LCD_LINE4_ADDR);
     printf("A for Ali ;)");
     while (!start) {continue; }
     
@@ -85,8 +87,16 @@ void main(void) {
     __delay_ms(2000);   
     printf("AND DONE");
     __delay_ms(4000);
-
     
+    start = false;
+    
+    lcd_clear();
+    printf("Press A to");
+    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+    printf("view results");
+
+    while (!start) {continue; }
+
     
     lcd_clear();
     printf("Canister Index");
@@ -119,7 +129,7 @@ void main(void) {
         
         }
         
-        if (state == 2 & clear == 1) {
+        else if (state == 2 & clear == 1) {
 
             lcd_clear();
             printf("# of Balls");
@@ -131,7 +141,7 @@ void main(void) {
             
         }
         
-        if (state == 3 & clear == 1) {
+        else if (state == 3 & clear == 1) {
             
             lcd_clear();
             printf("Individual Info");

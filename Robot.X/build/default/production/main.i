@@ -5236,8 +5236,10 @@ void main(void) {
 
     { lcdInst( (unsigned char)(8 | (1 << 2) | (0 << 1) | 0) );};
     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
-    printf("A to start");
-    { lcdInst(0x80 | LCD_LINE3_ADDR);};
+    printf("Press A");
+    { lcdInst(0x80 | LCD_LINE2_ADDR);};
+    printf("to start");
+    { lcdInst(0x80 | LCD_LINE4_ADDR);};
     printf("A for Ali ;)");
     while (!start) {continue; }
 
@@ -5259,6 +5261,14 @@ void main(void) {
     printf("AND DONE");
     _delay((unsigned long)((4000)*(10000000/4000.0)));
 
+    start = 0;
+
+    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+    printf("Press A to");
+    { lcdInst(0x80 | LCD_LINE3_ADDR);};
+    printf("view results");
+
+    while (!start) {continue; }
 
 
     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
@@ -5292,7 +5302,7 @@ void main(void) {
 
         }
 
-        if (state == 2 & clear == 1) {
+        else if (state == 2 & clear == 1) {
 
             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
             printf("# of Balls");
@@ -5304,7 +5314,7 @@ void main(void) {
 
         }
 
-        if (state == 3 & clear == 1) {
+        else if (state == 3 & clear == 1) {
 
             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
             printf("Individual Info");

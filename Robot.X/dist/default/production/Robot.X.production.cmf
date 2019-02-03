@@ -12,38 +12,38 @@
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
 $dist/default/production/Robot.X.production.o
-cinit CODE 0 F8E F8E 46 1
-intcode_body CODE 0 C48 C48 CA 1
-text0 CODE 0 12 12 5A2 1
-text1 CODE 0 10D4 10D4 28 1
-text2 CODE 0 EEE EEE 52 1
-text3 CODE 0 7F6 7F6 1E6 1
-text4 CODE 0 5B4 5B4 242 1
-text5 CODE 0 104E 104E 32 1
-text6 CODE 0 B24 B24 124 1
-text7 CODE 0 9DC 9DC 148 1
-text8 CODE 0 F40 F40 4E 1
-text9 CODE 0 D12 D12 96 1
-text10 CODE 0 1080 1080 2A 1
-text11 CODE 0 1016 1016 38 1
-text12 CODE 0 E18 E18 6C 1
-text13 CODE 0 1124 1124 C 1
-text14 CODE 0 E84 E84 6A 1
-text15 CODE 0 1130 1130 C 1
-text16 CODE 0 1112 1112 12 1
-text17 CODE 0 10FC 10FC 16 1
-text18 CODE 0 10AA 10AA 2A 1
-text19 CODE 0 DA8 DA8 70 1
+cinit CODE 0 FA0 FA0 46 1
+intcode_body CODE 0 C5A C5A CA 1
+text0 CODE 0 12 12 5B4 1
+text1 CODE 0 10E6 10E6 28 1
+text2 CODE 0 F00 F00 52 1
+text3 CODE 0 808 808 1E6 1
+text4 CODE 0 5C6 5C6 242 1
+text5 CODE 0 1060 1060 32 1
+text6 CODE 0 B36 B36 124 1
+text7 CODE 0 9EE 9EE 148 1
+text8 CODE 0 F52 F52 4E 1
+text9 CODE 0 D24 D24 96 1
+text10 CODE 0 1092 1092 2A 1
+text11 CODE 0 1028 1028 38 1
+text12 CODE 0 E2A E2A 6C 1
+text13 CODE 0 1136 1136 C 1
+text14 CODE 0 E96 E96 6A 1
+text15 CODE 0 1142 1142 C 1
+text16 CODE 0 1124 1124 12 1
+text17 CODE 0 110E 110E 16 1
+text18 CODE 0 10BC 10BC 2A 1
+text19 CODE 0 DBA DBA 70 1
 cstackCOMRAM COMRAM 1 1 1 6B 1
 cstackBANK0 BANK0 1 E5 E5 15 1
 temp COMRAM 1 74 74 1 1
 bssBANK0 BANK0 1 C2 C2 23 1
 intcode CODE 0 8 8 6 1
-idataBANK0 CODE 0 FD4 FD4 42 1
+idataBANK0 CODE 0 FE6 FE6 42 1
 dataBANK0 BANK0 1 80 80 42 1
 bssCOMRAM COMRAM 1 6C 6C 8 1
-mediumconst MEDIUMCONST 0 FEC6 FEC6 13A 1
-$/tmp/xcuvUpNtW.o
+mediumconst MEDIUMCONST 0 FEC2 FEC2 13E 1
+$/tmp/xcVNfitdJ.o
 idloc IDLOC 0 200000 200000 8 1
 init CODE 0 E E 4 1
 reset_vec CODE 0 0 0 4 1
@@ -67,11 +67,11 @@ BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
 CONST 4-7 1
-CONST 113C-FEC5 1
+CONST 114E-FEC1 1
 STACK FA-F7F 1
-SMALLCONST 113C-FEC5 1
+SMALLCONST 114E-FEC1 1
 CODE 4-7 1
-CODE 113C-FEC5 1
+CODE 114E-FEC1 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
@@ -82,7 +82,7 @@ BIGRAM 75-7F 1
 BIGRAM FA-F7F 1
 COMRAM 75-7F 1
 EEDATA F00000-F003FF 1
-MEDIUMCONST 113C-FEC5 1
+MEDIUMCONST 114E-FEC1 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -98,228 +98,228 @@ MEDIUMCONST 113C-FEC5 1
 %LINETAB
 $dist/default/production/Robot.X.production.o
 8 intcode CODE >34:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-8 intcode CODE >224:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-C48 intcode_body CODE >224:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+8 intcode CODE >226:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 C5A intcode_body CODE >226:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-C5E intcode_body CODE >230:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-C60 intcode_body CODE >232:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-C68 intcode_body CODE >234:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-C7E intcode_body CODE >236:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-C86 intcode_body CODE >240:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-C9C intcode_body CODE >242:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-CA4 intcode_body CODE >246:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-CAE intcode_body CODE >248:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-CDE intcode_body CODE >249:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-CE4 intcode_body CODE >253:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-CFE intcode_body CODE >257:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-DA8 text19 CODE >7:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DA8 text19 CODE >12:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DAC text19 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DB0 text19 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DB8 text19 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DBC text19 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DC0 text19 CODE >18:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DC8 text19 CODE >19:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DD0 text19 CODE >20:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DD4 text19 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DD6 text19 CODE >22:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DDC text19 CODE >23:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DDE text19 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DE2 text19 CODE >26:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DEE text19 CODE >27:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DF6 text19 CODE >28:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-DFC text19 CODE >29:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-E00 text19 CODE >31:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-E06 text19 CODE >32:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-E0E text19 CODE >33:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-E16 text19 CODE >34:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
-10AA text18 CODE >28:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10AA text18 CODE >29:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10B2 text18 CODE >30:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10B4 text18 CODE >31:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10B6 text18 CODE >34:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10BE text18 CODE >35:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10C0 text18 CODE >36:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10C8 text18 CODE >37:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10D2 text18 CODE >38:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10FC text17 CODE >44:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-10FE text17 CODE >46:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1104 text17 CODE >47:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-110C text17 CODE >48:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1110 text17 CODE >49:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1112 text16 CODE >55:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1114 text16 CODE >57:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-111C text16 CODE >60:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1122 text16 CODE >61:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1130 text15 CODE >64:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1132 text15 CODE >65:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1134 text15 CODE >66:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-113A text15 CODE >67:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-E84 text14 CODE >69:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-E84 text14 CODE >70:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-E94 text14 CODE >72:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-E96 text14 CODE >74:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-E9C text14 CODE >75:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EAC text14 CODE >76:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EB2 text14 CODE >77:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EB8 text14 CODE >78:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EBE text14 CODE >80:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EC4 text14 CODE >81:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-ECA text14 CODE >82:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-ED0 text14 CODE >83:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EE0 text14 CODE >84:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EE6 text14 CODE >87:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-EEC text14 CODE >88:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1124 text13 CODE >102:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1126 text13 CODE >103:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-1128 text13 CODE >104:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-112E text13 CODE >105:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
-E18 text12 CODE >8:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
-E18 text12 CODE >12:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
-E28 text12 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
-E2E text12 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
-E30 text12 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
-E70 text12 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
-E82 text12 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
-1016 text11 CODE >8:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
-1016 text11 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
-101E text11 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
-1020 text11 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
-1032 text11 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
-1036 text11 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
-1080 text10 CODE >12:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
-1080 text10 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
-1088 text10 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
-108A text10 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
-108E text10 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
-109C text10 CODE >25:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
-10A8 text10 CODE >26:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
-D12 text9 CODE >72:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D12 text9 CODE >77:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D16 text9 CODE >78:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D2A text9 CODE >82:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D40 text9 CODE >83:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D48 text9 CODE >84:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D4A text9 CODE >85:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D5E text9 CODE >86:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D62 text9 CODE >84:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D76 text9 CODE >90:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D7A text9 CODE >91:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-D8E text9 CODE >94:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-DA6 text9 CODE >95:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F40 text8 CODE >259:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F40 text8 CODE >264:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F5E text8 CODE >267:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F62 text8 CODE >268:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F68 text8 CODE >269:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F8C text8 CODE >270:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-9DC text7 CODE >9:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-9DC text7 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-9E0 text7 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-9E4 text7 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A04 text7 CODE >18:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A08 text7 CODE >20:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A0C text7 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A2C text7 CODE >22:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A30 text7 CODE >24:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A3C text7 CODE >25:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A50 text7 CODE >26:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A54 text7 CODE >27:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A56 text7 CODE >28:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A68 text7 CODE >29:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A6A text7 CODE >27:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A6E text7 CODE >32:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-A80 text7 CODE >33:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-AA4 text7 CODE >34:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-AC4 text7 CODE >35:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-AC6 text7 CODE >37:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-AD8 text7 CODE >38:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-ADC text7 CODE >40:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-AE2 text7 CODE >41:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-B02 text7 CODE >42:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-B22 text7 CODE >43:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
-B24 text6 CODE >9:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B24 text6 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B28 text6 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B2C text6 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B4C text6 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B50 text6 CODE >19:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B54 text6 CODE >20:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B74 text6 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B88 text6 CODE >22:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B8C text6 CODE >23:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-B8E text6 CODE >24:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-BA0 text6 CODE >25:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-BA2 text6 CODE >23:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-BA6 text6 CODE >28:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-BCA text6 CODE >29:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-BEA text6 CODE >30:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-BFC text6 CODE >31:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-C00 text6 CODE >33:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-C06 text6 CODE >34:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-C26 text6 CODE >35:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-C46 text6 CODE >36:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
-104E text5 CODE >1:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/abs.c
-104E text5 CODE >3:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/abs.c
-107E text5 CODE >4:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/abs.c
-5B4 text4 CODE >274:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-5B4 text4 CODE >280:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-5D4 text4 CODE >281:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-5E2 text4 CODE >282:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-5EA text4 CODE >283:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-60A text4 CODE >287:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-60C text4 CODE >288:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-60E text4 CODE >290:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-62E text4 CODE >291:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-636 text4 CODE >292:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-642 text4 CODE >293:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-648 text4 CODE >297:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-650 text4 CODE >298:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-656 text4 CODE >299:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-658 text4 CODE >300:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-65E text4 CODE >301:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-6E0 text4 CODE >302:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-6E6 text4 CODE >303:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-6EC text4 CODE >304:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-750 text4 CODE >299:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-792 text4 CODE >308:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-79E text4 CODE >309:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-7A4 text4 CODE >310:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-7CC text4 CODE >314:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-7F4 text4 CODE >315:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-7F6 text3 CODE >670:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-7F6 text3 CODE >680:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-810 text3 CODE >681:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-81E text3 CODE >683:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-82E text3 CODE >684:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-832 text3 CODE >792:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-84C text3 CODE >793:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-85A text3 CODE >794:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-87E text3 CODE >795:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-898 text3 CODE >825:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-8CC text3 CODE >827:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-8DA text3 CODE >828:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-914 text3 CODE >830:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-94A text3 CODE >1350:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-964 text3 CODE >1351:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-972 text3 CODE >1352:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-986 text3 CODE >1353:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-990 text3 CODE >1357:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-99E text3 CODE >1358:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-9A8 text3 CODE >1362:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-9CC text3 CODE >1363:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-EEE text2 CODE >1368:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-EEE text2 CODE >1373:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-EF6 text2 CODE >1374:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-EFE text2 CODE >1375:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F00 text2 CODE >1376:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F24 text2 CODE >1375:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F36 text2 CODE >1378:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-F3E text2 CODE >1382:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
-10D4 text1 CODE >5:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
-10D4 text1 CODE >9:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
-10DE text1 CODE >10:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
-10FA text1 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
+C6C intcode_body CODE >228:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+C70 intcode_body CODE >232:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+C72 intcode_body CODE >234:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+C7A intcode_body CODE >236:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+C90 intcode_body CODE >238:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+C98 intcode_body CODE >242:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+CAE intcode_body CODE >244:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+CB6 intcode_body CODE >248:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+CC0 intcode_body CODE >250:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+CF0 intcode_body CODE >251:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+CF6 intcode_body CODE >255:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+D10 intcode_body CODE >259:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+DBA text19 CODE >7:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DBA text19 CODE >12:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DBE text19 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DC2 text19 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DCA text19 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DCE text19 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DD2 text19 CODE >18:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DDA text19 CODE >19:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DE2 text19 CODE >20:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DE6 text19 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DE8 text19 CODE >22:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DEE text19 CODE >23:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DF0 text19 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+DF4 text19 CODE >26:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+E00 text19 CODE >27:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+E08 text19 CODE >28:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+E0E text19 CODE >29:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+E12 text19 CODE >31:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+E18 text19 CODE >32:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+E20 text19 CODE >33:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+E28 text19 CODE >34:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
+10BC text18 CODE >28:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10BC text18 CODE >29:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10C4 text18 CODE >30:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10C6 text18 CODE >31:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10C8 text18 CODE >34:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10D0 text18 CODE >35:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10D2 text18 CODE >36:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10DA text18 CODE >37:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+10E4 text18 CODE >38:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+110E text17 CODE >44:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1110 text17 CODE >46:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1116 text17 CODE >47:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+111E text17 CODE >48:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1122 text17 CODE >49:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1124 text16 CODE >55:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1126 text16 CODE >57:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+112E text16 CODE >60:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1134 text16 CODE >61:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1142 text15 CODE >64:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1144 text15 CODE >65:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1146 text15 CODE >66:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+114C text15 CODE >67:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+E96 text14 CODE >69:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+E96 text14 CODE >70:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EA6 text14 CODE >72:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EA8 text14 CODE >74:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EAE text14 CODE >75:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EBE text14 CODE >76:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EC4 text14 CODE >77:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+ECA text14 CODE >78:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+ED0 text14 CODE >80:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+ED6 text14 CODE >81:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EDC text14 CODE >82:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EE2 text14 CODE >83:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EF2 text14 CODE >84:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EF8 text14 CODE >87:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+EFE text14 CODE >88:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1136 text13 CODE >102:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1138 text13 CODE >103:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+113A text13 CODE >104:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+1140 text13 CODE >105:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
+E2A text12 CODE >8:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
+E2A text12 CODE >12:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
+E3A text12 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
+E40 text12 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
+E42 text12 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
+E82 text12 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
+E94 text12 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
+1028 text11 CODE >8:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
+1028 text11 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
+1030 text11 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
+1032 text11 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
+1044 text11 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
+1048 text11 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
+1092 text10 CODE >12:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
+1092 text10 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
+109A text10 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
+109C text10 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
+10A0 text10 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
+10AE text10 CODE >25:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
+10BA text10 CODE >26:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
+D24 text9 CODE >72:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D24 text9 CODE >77:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D28 text9 CODE >78:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D3C text9 CODE >82:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D52 text9 CODE >83:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D5A text9 CODE >84:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D5C text9 CODE >85:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D70 text9 CODE >86:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D74 text9 CODE >84:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D88 text9 CODE >90:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+D8C text9 CODE >91:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+DA0 text9 CODE >94:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+DB8 text9 CODE >95:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F52 text8 CODE >259:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F52 text8 CODE >264:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F70 text8 CODE >267:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F74 text8 CODE >268:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F7A text8 CODE >269:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F9E text8 CODE >270:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+9EE text7 CODE >9:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+9EE text7 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+9F2 text7 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+9F6 text7 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A16 text7 CODE >18:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A1A text7 CODE >20:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A1E text7 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A3E text7 CODE >22:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A42 text7 CODE >24:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A4E text7 CODE >25:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A62 text7 CODE >26:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A66 text7 CODE >27:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A68 text7 CODE >28:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A7A text7 CODE >29:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A7C text7 CODE >27:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A80 text7 CODE >32:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+A92 text7 CODE >33:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+AB6 text7 CODE >34:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+AD6 text7 CODE >35:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+AD8 text7 CODE >37:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+AEA text7 CODE >38:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+AEE text7 CODE >40:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+AF4 text7 CODE >41:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+B14 text7 CODE >42:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+B34 text7 CODE >43:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
+B36 text6 CODE >9:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B36 text6 CODE >14:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B3A text6 CODE >15:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B3E text6 CODE >16:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B5E text6 CODE >17:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B62 text6 CODE >19:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B66 text6 CODE >20:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B86 text6 CODE >21:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B9A text6 CODE >22:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+B9E text6 CODE >23:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+BA0 text6 CODE >24:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+BB2 text6 CODE >25:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+BB4 text6 CODE >23:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+BB8 text6 CODE >28:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+BDC text6 CODE >29:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+BFC text6 CODE >30:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+C0E text6 CODE >31:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+C12 text6 CODE >33:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+C18 text6 CODE >34:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+C38 text6 CODE >35:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+C58 text6 CODE >36:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
+1060 text5 CODE >1:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/abs.c
+1060 text5 CODE >3:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/abs.c
+1090 text5 CODE >4:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/abs.c
+5C6 text4 CODE >274:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+5C6 text4 CODE >280:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+5E6 text4 CODE >281:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+5F4 text4 CODE >282:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+5FC text4 CODE >283:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+61C text4 CODE >287:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+61E text4 CODE >288:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+620 text4 CODE >290:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+640 text4 CODE >291:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+648 text4 CODE >292:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+654 text4 CODE >293:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+65A text4 CODE >297:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+662 text4 CODE >298:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+668 text4 CODE >299:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+66A text4 CODE >300:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+670 text4 CODE >301:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+6F2 text4 CODE >302:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+6F8 text4 CODE >303:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+6FE text4 CODE >304:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+762 text4 CODE >299:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+7A4 text4 CODE >308:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+7B0 text4 CODE >309:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+7B6 text4 CODE >310:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+7DE text4 CODE >314:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+806 text4 CODE >315:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+808 text3 CODE >670:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+808 text3 CODE >680:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+822 text3 CODE >681:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+830 text3 CODE >683:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+840 text3 CODE >684:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+844 text3 CODE >792:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+85E text3 CODE >793:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+86C text3 CODE >794:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+890 text3 CODE >795:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+8AA text3 CODE >825:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+8DE text3 CODE >827:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+8EC text3 CODE >828:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+926 text3 CODE >830:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+95C text3 CODE >1350:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+976 text3 CODE >1351:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+984 text3 CODE >1352:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+998 text3 CODE >1353:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+9A2 text3 CODE >1357:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+9B0 text3 CODE >1358:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+9BA text3 CODE >1362:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+9DE text3 CODE >1363:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F00 text2 CODE >1368:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F00 text2 CODE >1373:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F08 text2 CODE >1374:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F10 text2 CODE >1375:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F12 text2 CODE >1376:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F36 text2 CODE >1375:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F48 text2 CODE >1378:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+F50 text2 CODE >1382:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
+10E6 text1 CODE >5:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
+10E6 text1 CODE >9:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
+10F0 text1 CODE >10:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
+110C text1 CODE >13:/Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
 12 text0 CODE >37:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 12 text0 CODE >41:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 16 text0 CODE >42:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
@@ -348,123 +348,125 @@ EE text0 CODE >79:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 12C text0 CODE >82:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 132 text0 CODE >83:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 13E text0 CODE >84:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-158 text0 CODE >94:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-16A text0 CODE >95:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-182 text0 CODE >96:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-18E text0 CODE >97:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+144 text0 CODE >85:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+150 text0 CODE >86:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+16A text0 CODE >96:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+17C text0 CODE >97:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 194 text0 CODE >98:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-1A8 text0 CODE >99:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-1B2 text0 CODE >103:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-1C2 text0 CODE >105:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-1DA text0 CODE >106:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-1E0 text0 CODE >107:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+1A0 text0 CODE >99:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+1A6 text0 CODE >100:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+1BA text0 CODE >101:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+1C4 text0 CODE >105:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+1D4 text0 CODE >107:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 1EC text0 CODE >108:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 1F2 text0 CODE >109:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-206 text0 CODE >110:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-210 text0 CODE >114:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+1FE text0 CODE >110:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+204 text0 CODE >111:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+218 text0 CODE >112:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 222 text0 CODE >116:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-23A text0 CODE >117:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-246 text0 CODE >118:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+234 text0 CODE >118:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 24C text0 CODE >119:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 258 text0 CODE >120:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 25E text0 CODE >121:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-272 text0 CODE >122:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-27C text0 CODE >126:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+26A text0 CODE >122:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+270 text0 CODE >123:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+284 text0 CODE >124:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 28E text0 CODE >128:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-2A6 text0 CODE >129:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-2B2 text0 CODE >130:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+2A0 text0 CODE >130:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 2B8 text0 CODE >131:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 2C4 text0 CODE >132:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 2CA text0 CODE >133:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-2E4 text0 CODE >134:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-2EE text0 CODE >138:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-2F4 text0 CODE >140:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-2FC text0 CODE >141:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-304 text0 CODE >142:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-30C text0 CODE >143:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-314 text0 CODE >145:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-332 text0 CODE >147:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-334 text0 CODE >149:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-344 text0 CODE >151:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-35C text0 CODE >152:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-37E text0 CODE >153:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-384 text0 CODE >154:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-3AC text0 CODE >155:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-3B2 text0 CODE >156:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+2D6 text0 CODE >134:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+2DC text0 CODE >135:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+2F6 text0 CODE >136:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+300 text0 CODE >140:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+306 text0 CODE >142:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+30E text0 CODE >143:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+316 text0 CODE >144:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+31E text0 CODE >145:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+326 text0 CODE >147:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+344 text0 CODE >149:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+346 text0 CODE >151:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+356 text0 CODE >153:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+36E text0 CODE >154:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+390 text0 CODE >155:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+396 text0 CODE >156:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 3BE text0 CODE >157:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-3C8 text0 CODE >160:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-3D8 text0 CODE >162:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-3F0 text0 CODE >163:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-412 text0 CODE >164:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-418 text0 CODE >165:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-434 text0 CODE >166:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-442 text0 CODE >168:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-44E text0 CODE >169:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+3C4 text0 CODE >158:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+3D0 text0 CODE >159:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+3DA text0 CODE >162:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+3EA text0 CODE >164:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+402 text0 CODE >165:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+424 text0 CODE >166:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+42A text0 CODE >167:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+446 text0 CODE >168:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 454 text0 CODE >170:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 460 text0 CODE >171:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-46A text0 CODE >174:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+466 text0 CODE >172:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+472 text0 CODE >173:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 47C text0 CODE >176:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-494 text0 CODE >177:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-4B6 text0 CODE >178:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-4BC text0 CODE >179:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-4D8 text0 CODE >180:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-4E6 text0 CODE >182:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-4F2 text0 CODE >183:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+48E text0 CODE >178:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+4A6 text0 CODE >179:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+4C8 text0 CODE >180:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+4CE text0 CODE >181:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+4EA text0 CODE >182:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 4F8 text0 CODE >184:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-504 text0 CODE >187:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-50E text0 CODE >190:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-51C text0 CODE >191:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-524 text0 CODE >192:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-528 text0 CODE >193:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-544 text0 CODE >194:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-54E text0 CODE >197:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-552 text0 CODE >198:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-564 text0 CODE >147:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-56C text0 CODE >203:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-570 text0 CODE >204:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-574 text0 CODE >208:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-582 text0 CODE >209:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-58A text0 CODE >210:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-58E text0 CODE >211:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-596 text0 CODE >212:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-59E text0 CODE >215:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-5A2 text0 CODE >216:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
-F8E cinit CODE >1249:/tmp/xcSxkkg6u
-F8E cinit CODE >1251:/tmp/xcSxkkg6u
-F8E cinit CODE >1254:/tmp/xcSxkkg6u
-F8E cinit CODE >1324:/tmp/xcSxkkg6u
-F90 cinit CODE >1325:/tmp/xcSxkkg6u
-F92 cinit CODE >1326:/tmp/xcSxkkg6u
-F94 cinit CODE >1327:/tmp/xcSxkkg6u
-F96 cinit CODE >1328:/tmp/xcSxkkg6u
-F98 cinit CODE >1329:/tmp/xcSxkkg6u
-F9A cinit CODE >1330:/tmp/xcSxkkg6u
-F9E cinit CODE >1331:/tmp/xcSxkkg6u
-FA2 cinit CODE >1332:/tmp/xcSxkkg6u
-FA2 cinit CODE >1333:/tmp/xcSxkkg6u
-FA4 cinit CODE >1334:/tmp/xcSxkkg6u
-FA8 cinit CODE >1335:/tmp/xcSxkkg6u
-FAA cinit CODE >1336:/tmp/xcSxkkg6u
-FAC cinit CODE >1337:/tmp/xcSxkkg6u
-FAE cinit CODE >1341:/tmp/xcSxkkg6u
-FB2 cinit CODE >1342:/tmp/xcSxkkg6u
-FB4 cinit CODE >1343:/tmp/xcSxkkg6u
-FB4 cinit CODE >1344:/tmp/xcSxkkg6u
-FB6 cinit CODE >1345:/tmp/xcSxkkg6u
-FB8 cinit CODE >1346:/tmp/xcSxkkg6u
-FBA cinit CODE >1349:/tmp/xcSxkkg6u
-FBE cinit CODE >1350:/tmp/xcSxkkg6u
-FC0 cinit CODE >1351:/tmp/xcSxkkg6u
-FC0 cinit CODE >1352:/tmp/xcSxkkg6u
-FC2 cinit CODE >1353:/tmp/xcSxkkg6u
-FC4 cinit CODE >1354:/tmp/xcSxkkg6u
-FC6 cinit CODE >1360:/tmp/xcSxkkg6u
-FC6 cinit CODE >1362:/tmp/xcSxkkg6u
-FC8 cinit CODE >1363:/tmp/xcSxkkg6u
-FCA cinit CODE >1365:/tmp/xcSxkkg6u
-FCC cinit CODE >1366:/tmp/xcSxkkg6u
-FCE cinit CODE >1367:/tmp/xcSxkkg6u
-FD0 cinit CODE >1368:/tmp/xcSxkkg6u
+504 text0 CODE >185:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+50A text0 CODE >186:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+516 text0 CODE >189:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+520 text0 CODE >192:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+52E text0 CODE >193:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+536 text0 CODE >194:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+53A text0 CODE >195:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+556 text0 CODE >196:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+560 text0 CODE >199:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+564 text0 CODE >200:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+576 text0 CODE >149:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+57E text0 CODE >205:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+582 text0 CODE >206:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+586 text0 CODE >210:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+594 text0 CODE >211:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+59C text0 CODE >212:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+5A0 text0 CODE >213:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+5A8 text0 CODE >214:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+5B0 text0 CODE >217:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+5B4 text0 CODE >218:/Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+FA0 cinit CODE >1256:/tmp/xcHb8oyQ9
+FA0 cinit CODE >1258:/tmp/xcHb8oyQ9
+FA0 cinit CODE >1261:/tmp/xcHb8oyQ9
+FA0 cinit CODE >1331:/tmp/xcHb8oyQ9
+FA2 cinit CODE >1332:/tmp/xcHb8oyQ9
+FA4 cinit CODE >1333:/tmp/xcHb8oyQ9
+FA6 cinit CODE >1334:/tmp/xcHb8oyQ9
+FA8 cinit CODE >1335:/tmp/xcHb8oyQ9
+FAA cinit CODE >1336:/tmp/xcHb8oyQ9
+FAC cinit CODE >1337:/tmp/xcHb8oyQ9
+FB0 cinit CODE >1338:/tmp/xcHb8oyQ9
+FB4 cinit CODE >1339:/tmp/xcHb8oyQ9
+FB4 cinit CODE >1340:/tmp/xcHb8oyQ9
+FB6 cinit CODE >1341:/tmp/xcHb8oyQ9
+FBA cinit CODE >1342:/tmp/xcHb8oyQ9
+FBC cinit CODE >1343:/tmp/xcHb8oyQ9
+FBE cinit CODE >1344:/tmp/xcHb8oyQ9
+FC0 cinit CODE >1348:/tmp/xcHb8oyQ9
+FC4 cinit CODE >1349:/tmp/xcHb8oyQ9
+FC6 cinit CODE >1350:/tmp/xcHb8oyQ9
+FC6 cinit CODE >1351:/tmp/xcHb8oyQ9
+FC8 cinit CODE >1352:/tmp/xcHb8oyQ9
+FCA cinit CODE >1353:/tmp/xcHb8oyQ9
+FCC cinit CODE >1356:/tmp/xcHb8oyQ9
+FD0 cinit CODE >1357:/tmp/xcHb8oyQ9
+FD2 cinit CODE >1358:/tmp/xcHb8oyQ9
+FD2 cinit CODE >1359:/tmp/xcHb8oyQ9
+FD4 cinit CODE >1360:/tmp/xcHb8oyQ9
+FD6 cinit CODE >1361:/tmp/xcHb8oyQ9
+FD8 cinit CODE >1367:/tmp/xcHb8oyQ9
+FD8 cinit CODE >1369:/tmp/xcHb8oyQ9
+FDA cinit CODE >1370:/tmp/xcHb8oyQ9
+FDC cinit CODE >1372:/tmp/xcHb8oyQ9
+FDE cinit CODE >1373:/tmp/xcHb8oyQ9
+FE0 cinit CODE >1374:/tmp/xcHb8oyQ9
+FE2 cinit CODE >1375:/tmp/xcHb8oyQ9
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -479,7 +481,7 @@ FD0 cinit CODE >1368:/tmp/xcSxkkg6u
 %SYMTAB
 putch@data F 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production/Robot.X.production.o
-__Lmediumconst FEC6 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__Lmediumconst FEC2 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
 __Hspace_0 30000E 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Hspace_1 FA 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Hspace_2 0 0 ABS 0 - dist/default/production/Robot.X.production.o
@@ -487,7 +489,7 @@ __CFG_IESO$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __size_of_lcdInst 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __HidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production/Robot.X.production.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production/Robot.X.production.o
-__mediumconst FEC6 0 MEDIUMCONST 0 mediumconst /tmp/xcuvUpNtW.o
+__mediumconst FEC2 0 MEDIUMCONST 0 mediumconst /tmp/xcVNfitdJ.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/Robot.X.production.o
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 ?_abs 1E 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
@@ -495,11 +497,11 @@ __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 ?_vfprintf 60 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/production/Robot.X.production.o
 _LATD F8C 0 ABS 0 - dist/default/production/Robot.X.production.o
-___sp 0 0 STACK 2 stack /tmp/xcuvUpNtW.o
-_ctoa F40 0 CODE 0 text8 dist/default/production/Robot.X.production.o
+___sp 0 0 STACK 2 stack /tmp/xcVNfitdJ.o
+_ctoa F52 0 CODE 0 text8 dist/default/production/Robot.X.production.o
 _dbuf C5 0 BANK0 1 bssBANK0 dist/default/production/Robot.X.production.o
-_dtoa 5B4 0 CODE 0 text4 dist/default/production/Robot.X.production.o
-_keys FEC7 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+_dtoa 5C6 0 CODE 0 text4 dist/default/production/Robot.X.production.o
+_keys FEC3 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
 _main 12 0 CODE 0 text0 dist/default/production/Robot.X.production.o
 _nout 6C 0 COMRAM 1 bssCOMRAM dist/default/production/Robot.X.production.o
 _prec 70 0 COMRAM 1 bssCOMRAM dist/default/production/Robot.X.production.o
@@ -509,7 +511,7 @@ btemp 74 0 COMRAM 1 temp dist/default/production/Robot.X.production.o
 pad@i 27 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 pad@p 24 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 pad@w 29 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-start E 0 CODE 0 init /tmp/xcuvUpNtW.o
+start E 0 CODE 0 init /tmp/xcVNfitdJ.o
 ___aomod@counter 1C 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __size_of___aodiv 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __size_of___aomod 0 0 ABS 0 - dist/default/production/Robot.X.production.o
@@ -519,21 +521,21 @@ __size_of_dtoa 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __size_of_main 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/Robot.X.production.o
 pad@fp 20 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-__end_of_interruptHandler D12 0 CODE 0 intcode_body dist/default/production/Robot.X.production.o
+__end_of_interruptHandler D24 0 CODE 0 intcode_body dist/default/production/Robot.X.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 dist/default/production/Robot.X.production.o
 __size_of_interruptHandler 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Hpowerup E 0 CODE 0 powerup dist/default/production/Robot.X.production.o
-__end_of_vfpfcnvrt 9DC 0 CODE 0 text3 dist/default/production/Robot.X.production.o
+__end_of_vfpfcnvrt 9EE 0 CODE 0 text3 dist/default/production/Robot.X.production.o
 ___awmod@sign 11 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 ttemp5 75 0 COMRAM 1 temp dist/default/production/Robot.X.production.o
 ttemp6 78 0 COMRAM 1 temp dist/default/production/Robot.X.production.o
 ttemp7 7C 0 COMRAM 1 temp dist/default/production/Robot.X.production.o
 __size_of_vfpfcnvrt 0 0 ABS 0 - dist/default/production/Robot.X.production.o
-__accesstop 80 0 ABS 0 - /tmp/xcuvUpNtW.o
-intlevel0 0 0 CODE 0 text /tmp/xcuvUpNtW.o
-intlevel1 0 0 CODE 0 text /tmp/xcuvUpNtW.o
-intlevel2 0 0 CODE 0 text /tmp/xcuvUpNtW.o
-intlevel3 0 0 CODE 0 text /tmp/xcuvUpNtW.o
+__accesstop 80 0 ABS 0 - /tmp/xcVNfitdJ.o
+intlevel0 0 0 CODE 0 text /tmp/xcVNfitdJ.o
+intlevel1 0 0 CODE 0 text /tmp/xcVNfitdJ.o
+intlevel2 0 0 CODE 0 text /tmp/xcVNfitdJ.o
+intlevel3 0 0 CODE 0 text /tmp/xcVNfitdJ.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production/Robot.X.production.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/Robot.X.production.o
 wtemp8 75 0 COMRAM 1 temp dist/default/production/Robot.X.production.o
@@ -545,16 +547,16 @@ __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 _DistanceCanister 94 0 BANK0 1 dataBANK0 dist/default/production/Robot.X.production.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/production/Robot.X.production.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/production/Robot.X.production.o
-_vfpfcnvrt 7F6 0 CODE 0 text3 dist/default/production/Robot.X.production.o
+_vfpfcnvrt 808 0 CODE 0 text3 dist/default/production/Robot.X.production.o
 dtoa@fp 2B 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-_LCD_SIZE_HORZ FEDD 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
-_LCD_SIZE_VERT FEDC 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+_LCD_SIZE_HORZ FED9 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+_LCD_SIZE_VERT FED8 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
 _ADCON1 FC1 0 ABS 0 - dist/default/production/Robot.X.production.o
-__end_of_lcdInst 113C 0 CODE 0 text15 dist/default/production/Robot.X.production.o
-___inthi_sp 0 0 STACK 2 stack /tmp/xcuvUpNtW.o
-___intlo_sp 0 0 STACK 2 stack /tmp/xcuvUpNtW.o
+__end_of_lcdInst 114E 0 CODE 0 text15 dist/default/production/Robot.X.production.o
+___inthi_sp 0 0 STACK 2 stack /tmp/xcVNfitdJ.o
+___intlo_sp 0 0 STACK 2 stack /tmp/xcVNfitdJ.o
 _Canister BE 0 BANK0 1 dataBANK0 dist/default/production/Robot.X.production.o
-__end_of_send_byte 1124 0 CODE 0 text16 dist/default/production/Robot.X.production.o
+__end_of_send_byte 1136 0 CODE 0 text16 dist/default/production/Robot.X.production.o
 __size_of_initLCD 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __size_of_send_byte 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production/Robot.X.production.o
@@ -562,10 +564,10 @@ __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production/Robot.X.produc
 __Hmediumconst 10000 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
 ?_printf 68 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Hintcodelo E 0 CODE 0 intcodelo dist/default/production/Robot.X.production.o
-__end_of___aodiv B24 0 CODE 0 text7 dist/default/production/Robot.X.production.o
-__end_of___aomod C48 0 CODE 0 text6 dist/default/production/Robot.X.production.o
-__end_of___awmod E18 0 CODE 0 text19 dist/default/production/Robot.X.production.o
-_send_byte 1112 0 CODE 0 text16 dist/default/production/Robot.X.production.o
+__end_of___aodiv B36 0 CODE 0 text7 dist/default/production/Robot.X.production.o
+__end_of___aomod C5A 0 CODE 0 text6 dist/default/production/Robot.X.production.o
+__end_of___awmod E2A 0 CODE 0 text19 dist/default/production/Robot.X.production.o
+_send_byte 1124 0 CODE 0 text16 dist/default/production/Robot.X.production.o
 ___aodiv@quotient 1E 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 _INT1IE 7F83 0 ABS 0 - dist/default/production/Robot.X.production.o
 _INT1IF 7F80 0 ABS 0 - dist/default/production/Robot.X.production.o
@@ -579,19 +581,19 @@ main@miniState F4 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.producti
 __Lintcodelo E 0 CODE 0 intcodelo dist/default/production/Robot.X.production.o
 __CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 ___aomod@divisor 14 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-start_initialization F8E 0 CODE 0 cinit dist/default/production/Robot.X.production.o
+start_initialization FA0 0 CODE 0 cinit dist/default/production/Robot.X.production.o
 __CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production/Robot.X.production.o
 ___rparam_used 1 0 ABS 0 - dist/default/production/Robot.X.production.o
-__end_of_send_nibble 1112 0 CODE 0 text17 dist/default/production/Robot.X.production.o
+__end_of_send_nibble 1124 0 CODE 0 text17 dist/default/production/Robot.X.production.o
 __CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __pcstackBANK0 E5 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.production.o
-_dtoa$326 3D 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-__end_of_printf 10FC 0 CODE 0 text1 dist/default/production/Robot.X.production.o
+_dtoa$327 3D 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
+__end_of_printf 110E 0 CODE 0 text1 dist/default/production/Robot.X.production.o
 __size_of_pulse_e 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 fputc@fp 12 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 fputs@fp 1B 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-__end_of_initLCD EEE 0 CODE 0 text14 dist/default/production/Robot.X.production.o
+__end_of_initLCD F00 0 CODE 0 text14 dist/default/production/Robot.X.production.o
 __Hbank0 0 0 ABS 0 bank0 dist/default/production/Robot.X.production.o
 __Hbank1 0 0 ABS 0 bank1 dist/default/production/Robot.X.production.o
 __Hbank2 0 0 ABS 0 bank2 dist/default/production/Robot.X.production.o
@@ -604,7 +606,7 @@ __Hbank8 0 0 ABS 0 bank8 dist/default/production/Robot.X.production.o
 __Hbank9 0 0 ABS 0 bank9 dist/default/production/Robot.X.production.o
 __Hcinit 0 0 ABS 0 cinit dist/default/production/Robot.X.production.o
 __Hconst 0 0 CONST 0 const dist/default/production/Robot.X.production.o
-__end_of_strlen 10AA 0 CODE 0 text10 dist/default/production/Robot.X.production.o
+__end_of_strlen 10BC 0 CODE 0 text10 dist/default/production/Robot.X.production.o
 __Hidata 0 0 CODE 0 idata dist/default/production/Robot.X.production.o
 __Hidloc 200008 0 IDLOC 0 idloc dist/default/production/Robot.X.production.o
 __Hnvbit 0 0 COMRAM 1 nvbit dist/default/production/Robot.X.production.o
@@ -629,7 +631,7 @@ __Hbank14 0 0 ABS 0 bank14 dist/default/production/Robot.X.production.o
 __Hbank15 0 0 ABS 0 bank15 dist/default/production/Robot.X.production.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production/Robot.X.production.o
 __Hbigram 0 0 ABS 0 bigram dist/default/production/Robot.X.production.o
-__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcuvUpNtW.o
+__smallconst 0 0 SMALLCONST 0 smallconst /tmp/xcVNfitdJ.o
 __Hcomram 0 0 ABS 0 comram dist/default/production/Robot.X.production.o
 __Hconfig 30000E 0 CONFIG 0 config dist/default/production/Robot.X.production.o
 __CFG_LPT1OSC$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
@@ -665,8 +667,8 @@ __Hfarbss 0 0 FARRAM 0 farbss dist/default/production/Robot.X.production.o
 _exit_key C3 0 BANK0 1 bssBANK0 dist/default/production/Robot.X.production.o
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production/Robot.X.production.o
 _INTCONbits FF2 0 ABS 0 - dist/default/production/Robot.X.production.o
-__end_of_LCD_SIZE_HORZ FEDE 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
-__end_of_LCD_SIZE_VERT FEDD 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__end_of_LCD_SIZE_HORZ FEDA 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__end_of_LCD_SIZE_VERT FED9 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
 __Habs1 0 0 ABS 0 abs1 dist/default/production/Robot.X.production.o
 __Hdata 0 0 ABS 0 data dist/default/production/Robot.X.production.o
 __Hinit 12 0 CODE 0 init dist/default/production/Robot.X.production.o
@@ -692,8 +694,8 @@ __Hirdata 0 0 CODE 0 irdata dist/default/production/Robot.X.production.o
 __S0 30000E 0 ABS 0 - dist/default/production/Robot.X.production.o
 __S1 FA 0 ABS 0 - dist/default/production/Robot.X.production.o
 __S2 0 0 ABS 0 - dist/default/production/Robot.X.production.o
-_abs 104E 0 CODE 0 text5 dist/default/production/Robot.X.production.o
-_pad D12 0 CODE 0 text9 dist/default/production/Robot.X.production.o
+_abs 1060 0 CODE 0 text5 dist/default/production/Robot.X.production.o
+_pad D24 0 CODE 0 text9 dist/default/production/Robot.X.production.o
 _BallDispensed 80 0 BANK0 1 dataBANK0 dist/default/production/Robot.X.production.o
 main@miniTick ED 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.production.o
 main@number_pressed EF 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.production.o
@@ -701,17 +703,17 @@ ___aodiv@sign 1D 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.product
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production/Robot.X.production.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/production/Robot.X.production.o
 lcdInst@data F 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-__end_of_abs 1080 0 CODE 0 text5 dist/default/production/Robot.X.production.o
-__end_of_pad DA8 0 CODE 0 text9 dist/default/production/Robot.X.production.o
-int_func C48 0 CODE 0 intcode_body dist/default/production/Robot.X.production.o
+__end_of_abs 1092 0 CODE 0 text5 dist/default/production/Robot.X.production.o
+__end_of_pad DBA 0 CODE 0 text9 dist/default/production/Robot.X.production.o
+int_func C5A 0 CODE 0 intcode_body dist/default/production/Robot.X.production.o
 __CFG_CCP2MX$PORTC 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Lintentry 0 0 ABS 0 intentry dist/default/production/Robot.X.production.o
-_lcdInst 1130 0 CODE 0 text15 dist/default/production/Robot.X.production.o
+_lcdInst 1142 0 CODE 0 text15 dist/default/production/Robot.X.production.o
 __Hramtop 1000 0 RAM 0 ramtop dist/default/production/Robot.X.production.o
 strlen@a E 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 strlen@s C 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/production/Robot.X.production.o
-__end_of_pulse_e 10D4 0 CODE 0 text18 dist/default/production/Robot.X.production.o
+__end_of_pulse_e 10E6 0 CODE 0 text18 dist/default/production/Robot.X.production.o
 __pdataBANK0 80 0 BANK0 1 dataBANK0 dist/default/production/Robot.X.production.o
 __activetblptr 2 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/production/Robot.X.production.o
@@ -730,20 +732,20 @@ __Htext19 0 0 ABS 0 text19 dist/default/production/Robot.X.production.o
 vfpfcnvrt@fmt 51 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 ___awmod@counter 10 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 pad@buf 22 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-__ptext10 1080 0 CODE 0 text10 dist/default/production/Robot.X.production.o
-__ptext11 1016 0 CODE 0 text11 dist/default/production/Robot.X.production.o
-__ptext12 E18 0 CODE 0 text12 dist/default/production/Robot.X.production.o
-__ptext13 1124 0 CODE 0 text13 dist/default/production/Robot.X.production.o
-__ptext14 E84 0 CODE 0 text14 dist/default/production/Robot.X.production.o
-__ptext15 1130 0 CODE 0 text15 dist/default/production/Robot.X.production.o
-__ptext16 1112 0 CODE 0 text16 dist/default/production/Robot.X.production.o
-__ptext17 10FC 0 CODE 0 text17 dist/default/production/Robot.X.production.o
-__ptext18 10AA 0 CODE 0 text18 dist/default/production/Robot.X.production.o
-__ptext19 DA8 0 CODE 0 text19 dist/default/production/Robot.X.production.o
-___aodiv 9DC 0 CODE 0 text7 dist/default/production/Robot.X.production.o
-___aomod B24 0 CODE 0 text6 dist/default/production/Robot.X.production.o
-___awmod DA8 0 CODE 0 text19 dist/default/production/Robot.X.production.o
-__pintcode_body C48 0 CODE 0 intcode_body dist/default/production/Robot.X.production.o
+__ptext10 1092 0 CODE 0 text10 dist/default/production/Robot.X.production.o
+__ptext11 1028 0 CODE 0 text11 dist/default/production/Robot.X.production.o
+__ptext12 E2A 0 CODE 0 text12 dist/default/production/Robot.X.production.o
+__ptext13 1136 0 CODE 0 text13 dist/default/production/Robot.X.production.o
+__ptext14 E96 0 CODE 0 text14 dist/default/production/Robot.X.production.o
+__ptext15 1142 0 CODE 0 text15 dist/default/production/Robot.X.production.o
+__ptext16 1124 0 CODE 0 text16 dist/default/production/Robot.X.production.o
+__ptext17 110E 0 CODE 0 text17 dist/default/production/Robot.X.production.o
+__ptext18 10BC 0 CODE 0 text18 dist/default/production/Robot.X.production.o
+__ptext19 DBA 0 CODE 0 text19 dist/default/production/Robot.X.production.o
+___aodiv 9EE 0 CODE 0 text7 dist/default/production/Robot.X.production.o
+___aomod B36 0 CODE 0 text6 dist/default/production/Robot.X.production.o
+___awmod DBA 0 CODE 0 text19 dist/default/production/Robot.X.production.o
+__pintcode_body C5A 0 CODE 0 intcode_body dist/default/production/Robot.X.production.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/production/Robot.X.production.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/production/Robot.X.production.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/production/Robot.X.production.o
@@ -758,19 +760,19 @@ __CFG_BORV$3 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 ?_dtoa 2B 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Lcomram 0 0 ABS 0 comram dist/default/production/Robot.X.production.o
 __Lconfig 300000 0 CONFIG 0 config dist/default/production/Robot.X.production.o
-_printf 10D4 0 CODE 0 text1 dist/default/production/Robot.X.production.o
+_printf 10E6 0 CODE 0 text1 dist/default/production/Robot.X.production.o
 __CFG_CPD$ON 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 _LATDbits F8C 0 ABS 0 - dist/default/production/Robot.X.production.o
 interruptHandler@i 9 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/production/Robot.X.production.o
 main@tick EB 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.production.o
 main@clear F6 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.production.o
-_strlen 1080 0 CODE 0 text10 dist/default/production/Robot.X.production.o
+_strlen 1092 0 CODE 0 text10 dist/default/production/Robot.X.production.o
 main@state F8 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.production.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/production/Robot.X.production.o
 __size_of_vfprintf 0 0 ABS 0 - dist/default/production/Robot.X.production.o
-stackhi F7F 0 ABS 0 - /tmp/xcuvUpNtW.o
-stacklo FA 0 ABS 0 - /tmp/xcuvUpNtW.o
+stackhi F7F 0 ABS 0 - /tmp/xcVNfitdJ.o
+stacklo FA 0 ABS 0 - /tmp/xcVNfitdJ.o
 send_nibble@data D 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Lintcode 8 0 CODE 0 intcode dist/default/production/Robot.X.production.o
 send_byte@data E 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
@@ -787,7 +789,7 @@ ___aodiv@divisor 14 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.prod
 ___aodiv@dividend C 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production/Robot.X.production.o
 printf@ap E7 0 BANK0 1 cstackBANK0 dist/default/production/Robot.X.production.o
-end_of_initialization FC6 0 CODE 0 cinit dist/default/production/Robot.X.production.o
+end_of_initialization FD8 0 CODE 0 cinit dist/default/production/Robot.X.production.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/production/Robot.X.production.o
 __Hintentry 0 0 ABS 0 intentry dist/default/production/Robot.X.production.o
 __CFG_STVREN$ON 0 0 ABS 0 - dist/default/production/Robot.X.production.o
@@ -803,26 +805,26 @@ __CFG_OSC$HS 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 vfprintf@fmt 62 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production/Robot.X.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production/Robot.X.production.o
-_initLCD E84 0 CODE 0 text14 dist/default/production/Robot.X.production.o
+_initLCD E96 0 CODE 0 text14 dist/default/production/Robot.X.production.o
 ___awmod@dividend C 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Lramtop 1000 0 RAM 0 ramtop dist/default/production/Robot.X.production.o
 __size_of_strlen 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 pulse_e@interruptState C 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/production/Robot.X.production.o
-__pcinit F8E 0 CODE 0 cinit dist/default/production/Robot.X.production.o
+__pcinit FA0 0 CODE 0 cinit dist/default/production/Robot.X.production.o
 vfpfcnvrt@ap 53 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 vfpfcnvrt@fp 4F 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 vfpfcnvrt@ll 57 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __ptext0 12 0 CODE 0 text0 dist/default/production/Robot.X.production.o
-__ptext1 10D4 0 CODE 0 text1 dist/default/production/Robot.X.production.o
-__ptext2 EEE 0 CODE 0 text2 dist/default/production/Robot.X.production.o
-__ptext3 7F6 0 CODE 0 text3 dist/default/production/Robot.X.production.o
-__ptext4 5B4 0 CODE 0 text4 dist/default/production/Robot.X.production.o
-__ptext5 104E 0 CODE 0 text5 dist/default/production/Robot.X.production.o
-__ptext6 B24 0 CODE 0 text6 dist/default/production/Robot.X.production.o
-__ptext7 9DC 0 CODE 0 text7 dist/default/production/Robot.X.production.o
-__ptext8 F40 0 CODE 0 text8 dist/default/production/Robot.X.production.o
-__ptext9 D12 0 CODE 0 text9 dist/default/production/Robot.X.production.o
+__ptext1 10E6 0 CODE 0 text1 dist/default/production/Robot.X.production.o
+__ptext2 F00 0 CODE 0 text2 dist/default/production/Robot.X.production.o
+__ptext3 808 0 CODE 0 text3 dist/default/production/Robot.X.production.o
+__ptext4 5C6 0 CODE 0 text4 dist/default/production/Robot.X.production.o
+__ptext5 1060 0 CODE 0 text5 dist/default/production/Robot.X.production.o
+__ptext6 B36 0 CODE 0 text6 dist/default/production/Robot.X.production.o
+__ptext7 9EE 0 CODE 0 text7 dist/default/production/Robot.X.production.o
+__ptext8 F52 0 CODE 0 text8 dist/default/production/Robot.X.production.o
+__ptext9 D24 0 CODE 0 text9 dist/default/production/Robot.X.production.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/production/Robot.X.production.o
 vfprintf@ap 64 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 vfprintf@fp 60 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
@@ -837,20 +839,20 @@ __Ltext16 0 0 ABS 0 text16 dist/default/production/Robot.X.production.o
 __Ltext17 0 0 ABS 0 text17 dist/default/production/Robot.X.production.o
 __Ltext18 0 0 ABS 0 text18 dist/default/production/Robot.X.production.o
 __Ltext19 0 0 ABS 0 text19 dist/default/production/Robot.X.production.o
-__end_of_LCD_LINE1_ADDR FEDC 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
-__ramtop 1000 0 RAM 0 ramtop /tmp/xcuvUpNtW.o
-__end_of_LCD_LINE2_ADDR FEDB 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
-_vfprintf EEE 0 CODE 0 text2 dist/default/production/Robot.X.production.o
+__end_of_LCD_LINE1_ADDR FED8 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__ramtop 1000 0 RAM 0 ramtop /tmp/xcVNfitdJ.o
+__end_of_LCD_LINE2_ADDR FED7 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+_vfprintf F00 0 CODE 0 text2 dist/default/production/Robot.X.production.o
 __Lpowerup E 0 CODE 0 powerup dist/default/production/Robot.X.production.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production/Robot.X.production.o
-__end_of_LCD_LINE3_ADDR FEDA 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
-__end_of_LCD_LINE4_ADDR FED9 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__end_of_LCD_LINE3_ADDR FED6 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__end_of_LCD_LINE4_ADDR FED5 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/production/Robot.X.production.o
-__end_of_vfprintf F40 0 CODE 0 text2 dist/default/production/Robot.X.production.o
+__end_of_vfprintf F52 0 CODE 0 text2 dist/default/production/Robot.X.production.o
 ___param_bank 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __CFG_WDT$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production/Robot.X.production.o
-__end_of__initialization FC6 0 CODE 0 cinit dist/default/production/Robot.X.production.o
+__end_of__initialization FD8 0 CODE 0 cinit dist/default/production/Robot.X.production.o
 ___awmod@divisor E 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
@@ -861,27 +863,27 @@ __CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/production/Robot.X.production.o
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
-__pidataBANK0 FD4 0 CODE 0 idataBANK0 dist/default/production/Robot.X.production.o
+__pidataBANK0 FE6 0 CODE 0 idataBANK0 dist/default/production/Robot.X.production.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/production/Robot.X.production.o
 ctoa@fp 2B 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 __CFG_PWRT$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-__pmediumconst FEC6 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__pmediumconst FEC2 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
 __CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 vfpfcnvrt@c 5F 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 _interruptHandler 8 0 CODE 0 intcode dist/default/production/Robot.X.production.o
-__end_of_ctoa F8E 0 CODE 0 text8 dist/default/production/Robot.X.production.o
-__end_of_dtoa 7F6 0 CODE 0 text4 dist/default/production/Robot.X.production.o
-__end_of_keys FED8 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
-__end_of_main 5B4 0 CODE 0 text0 dist/default/production/Robot.X.production.o
+__end_of_ctoa FA0 0 CODE 0 text8 dist/default/production/Robot.X.production.o
+__end_of_dtoa 808 0 CODE 0 text4 dist/default/production/Robot.X.production.o
+__end_of_keys FED4 0 MEDIUMCONST 0 mediumconst dist/default/production/Robot.X.production.o
+__end_of_main 5C6 0 CODE 0 text0 dist/default/production/Robot.X.production.o
 __pintcode 8 0 CODE 0 intcode dist/default/production/Robot.X.production.o
 printf@fmt 68 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
-__end_of_fputc E84 0 CODE 0 text12 dist/default/production/Robot.X.production.o
-__end_of_fputs 104E 0 CODE 0 text11 dist/default/production/Robot.X.production.o
+__end_of_fputc E96 0 CODE 0 text12 dist/default/production/Robot.X.production.o
+__end_of_fputs 1060 0 CODE 0 text11 dist/default/production/Robot.X.production.o
 _PORTB F81 0 ABS 0 - dist/default/production/Robot.X.production.o
 _TRISD F95 0 ABS 0 - dist/default/production/Robot.X.production.o
 _State A8 0 BANK0 1 dataBANK0 dist/default/production/Robot.X.production.o
-__end_of_putch 1130 0 CODE 0 text13 dist/default/production/Robot.X.production.o
+__end_of_putch 1142 0 CODE 0 text13 dist/default/production/Robot.X.production.o
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __CFG_CP1$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __HRAM 0 0 ABS 0 - dist/default/production/Robot.X.production.o
@@ -896,18 +898,18 @@ __CFG_CP2$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __CFG_CP3$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 _balls BC 0 BANK0 1 dataBANK0 dist/default/production/Robot.X.production.o
 _flags 72 0 COMRAM 1 bssCOMRAM dist/default/production/Robot.X.production.o
-_fputc E18 0 CODE 0 text12 dist/default/production/Robot.X.production.o
-_fputs 1016 0 CODE 0 text11 dist/default/production/Robot.X.production.o
+_fputc E2A 0 CODE 0 text12 dist/default/production/Robot.X.production.o
+_fputs 1028 0 CODE 0 text11 dist/default/production/Robot.X.production.o
 __CFG_CPB$OFF 0 0 ABS 0 - dist/default/production/Robot.X.production.o
-_putch 1124 0 CODE 0 text13 dist/default/production/Robot.X.production.o
+_putch 1136 0 CODE 0 text13 dist/default/production/Robot.X.production.o
 _start C2 0 BANK0 1 bssBANK0 dist/default/production/Robot.X.production.o
 _width 6E 0 COMRAM 1 bssCOMRAM dist/default/production/Robot.X.production.o
-_pulse_e 10AA 0 CODE 0 text18 dist/default/production/Robot.X.production.o
+_pulse_e 10BC 0 CODE 0 text18 dist/default/production/Robot.X.production.o
 __size_of_abs 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __size_of_pad 0 0 ABS 0 - dist/default/production/Robot.X.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 dist/default/production/Robot.X.production.o
-_send_nibble 10FC 0 CODE 0 text17 dist/default/production/Robot.X.production.o
-__initialization F8E 0 CODE 0 cinit dist/default/production/Robot.X.production.o
+_send_nibble 110E 0 CODE 0 text17 dist/default/production/Robot.X.production.o
+__initialization FA0 0 CODE 0 cinit dist/default/production/Robot.X.production.o
 __pbssBANK0 C2 0 BANK0 1 bssBANK0 dist/default/production/Robot.X.production.o
 interruptHandler@keypress B 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
 ctoa@c 2D 0 COMRAM 1 cstackCOMRAM dist/default/production/Robot.X.production.o
@@ -950,7 +952,7 @@ __Hintcode E 0 CODE 0 intcode dist/default/production/Robot.X.production.o
 idloc 0 200000 200000 8 1
 cstackCOMRAM 1 1 1 74 1
 reset_vec 0 0 0 4 1
-intcode 0 8 8 1134 1
+intcode 0 8 8 1146 1
 dataBANK0 1 80 80 7A 1
-mediumconst 0 FEC6 FEC6 13A 1
+mediumconst 0 FEC2 FEC2 13E 1
 config 0 300000 300000 E 1

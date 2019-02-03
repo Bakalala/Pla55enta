@@ -5246,7 +5246,7 @@ void main(void) {
     printf("It's ya boy Ali!");
     _delay((unsigned long)((4000)*(10000000/4000.0)));
     { lcdInst(0x80 | LCD_LINE3_ADDR);};
-    printf("Ali's getting hot ");
+    printf("He gettin hot ");
     _delay((unsigned long)((4000)*(10000000/4000.0)));
 
     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
@@ -5254,6 +5254,8 @@ void main(void) {
     _delay((unsigned long)((4000)*(10000000/4000.0)));
     { lcdInst(0x80 | LCD_LINE3_ADDR);};
     printf("Almost done");
+    { lcdInst(0x80 | LCD_LINE4_ADDR);};
+    printf("AND DONE");
     _delay((unsigned long)((4000)*(10000000/4000.0)));
 
 

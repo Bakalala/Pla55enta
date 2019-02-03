@@ -73,7 +73,7 @@ void main(void) {
     printf("It's ya boy Ali!");
     __delay_ms(4000);   
     lcd_set_ddram_addr(LCD_LINE3_ADDR);
-    printf("Ali's getting hot ");
+    printf("He gettin hot ");
     __delay_ms(4000);
 
     lcd_clear();
@@ -81,6 +81,8 @@ void main(void) {
     __delay_ms(4000);   
     lcd_set_ddram_addr(LCD_LINE3_ADDR);
     printf("Almost done");
+    lcd_set_ddram_addr(LCD_LINE4_ADDR);
+    printf("AND DONE");
     __delay_ms(4000);
 
     

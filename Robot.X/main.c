@@ -82,6 +82,7 @@ void main(void) {
     lcd_set_ddram_addr(LCD_LINE3_ADDR);
     printf("Almost done");
     lcd_set_ddram_addr(LCD_LINE4_ADDR);
+    __delay_ms(2000);   
     printf("AND DONE");
     __delay_ms(4000);
 

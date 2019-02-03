@@ -5255,6 +5255,7 @@ void main(void) {
     { lcdInst(0x80 | LCD_LINE3_ADDR);};
     printf("Almost done");
     { lcdInst(0x80 | LCD_LINE4_ADDR);};
+    _delay((unsigned long)((2000)*(10000000/4000.0)));
     printf("AND DONE");
     _delay((unsigned long)((4000)*(10000000/4000.0)));
 

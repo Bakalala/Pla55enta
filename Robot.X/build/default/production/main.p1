@@ -582,26 +582,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _start
 -> -> 0 `i `a
 ]
-"30
-[; ;main.c: 30: int time = 30;
+"26
+[; ;main.c: 26: int error = 0;
+[v _error `i ~T0 @X0 1 e ]
+[i _error
+-> 0 `i
+]
+"31
+[; ;main.c: 31: int time = 30;
 [v _time `i ~T0 @X0 1 e ]
 [i _time
 -> 30 `i
 ]
-"31
-[; ;main.c: 31: int Canister = 8;
+"32
+[; ;main.c: 32: int Canister = 8;
 [v _Canister `i ~T0 @X0 1 e ]
 [i _Canister
 -> 8 `i
 ]
-"32
-[; ;main.c: 32: int balls = 5;
+"33
+[; ;main.c: 33: int balls = 5;
 [v _balls `i ~T0 @X0 1 e ]
 [i _balls
 -> 5 `i
 ]
-"33
-[; ;main.c: 33: int State[10] = {1,1,1,0,0,1,1,0,-1,-1};
+"34
+[; ;main.c: 34: int State[10] = {1,1,1,0,0,1,1,0,-1,-1};
 [v _State `i ~T0 @X0 -> 10 `i e ]
 [i _State
 :U ..
@@ -617,8 +623,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -U -> 1 `i
 ..
 ]
-"34
-[; ;main.c: 34: int DistanceCanister[10] = {20,30,40,59,123,212,332,400,-1,-1};
+"35
+[; ;main.c: 35: int DistanceCanister[10] = {20,30,40,59,123,212,332,400,-1,-1};
 [v _DistanceCanister `i ~T0 @X0 -> 10 `i e ]
 [i _DistanceCanister
 :U ..
@@ -634,8 +640,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -U -> 1 `i
 ..
 ]
-"35
-[; ;main.c: 35: int BallDispensed[10] = {1,1,1,0,0,1,1,0,-1,-1};
+"36
+[; ;main.c: 36: int BallDispensed[10] = {1,1,1,0,0,1,1,0,-1,-1};
 [v _BallDispensed `i ~T0 @X0 -> 10 `i e ]
 [i _BallDispensed
 :U ..
@@ -652,74 +658,62 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"37
-[; ;main.c: 37: void main(void) {
+"38
+[; ;main.c: 38: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"41
-[; ;main.c: 41:     LATD = 0x00;
-[e = _LATD -> -> 0 `i `uc ]
 "42
-[; ;main.c: 42:     TRISD = 0x00;
+[; ;main.c: 42:     LATD = 0x00;
+[e = _LATD -> -> 0 `i `uc ]
+"43
+[; ;main.c: 43:     TRISD = 0x00;
 [e = _TRISD -> -> 0 `i `uc ]
-"45
-[; ;main.c: 45:     ADCON1 = 0b00001111;
+"46
+[; ;main.c: 46:     ADCON1 = 0b00001111;
 [e = _ADCON1 -> -> 15 `i `uc ]
-"48
-[; ;main.c: 48:     INT1IE = 1;
+"49
+[; ;main.c: 49:     INT1IE = 1;
 [e = _INT1IE -> -> 1 `i `b ]
-"51
-[; ;main.c: 51:     initLCD();
+"52
+[; ;main.c: 52:     initLCD();
 [e ( _initLCD ..  ]
-"54
-[; ;main.c: 54:     (INTCONbits.GIE = 1);
+"55
+[; ;main.c: 55:     (INTCONbits.GIE = 1);
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"57
-[; ;main.c: 57:     int state = 0;
-[v _state `i ~T0 @X0 1 a ]
-[e = _state -> 0 `i ]
-"58
-[; ;main.c: 58:     int tick = 0;
-[v _tick `i ~T0 @X0 1 a ]
-[e = _tick -> 0 `i ]
 "59
-[; ;main.c: 59:     int clear = 1;
-[v _clear `i ~T0 @X0 1 a ]
-[e = _clear -> 1 `i ]
-"64
-[; ;main.c: 64:     { lcdInst( (unsigned char)(8 | (1 << 2) | (0 << 1) | 0) );};
+[; ;main.c: 59:     { lcdInst( (unsigned char)(8 | (1 << 2) | (0 << 1) | 0) );};
 {
 [e ( _lcdInst (1 -> -> | | | -> 8 `i << -> 1 `i -> 2 `i << -> 0 `i -> 1 `i -> 0 `i `uc `uc ]
 }
-"65
-[; ;main.c: 65:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"60
+[; ;main.c: 60:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"66
-[; ;main.c: 66:     printf("Press A");
+"61
+[; ;main.c: 61:     printf("Press A");
 [e ( _printf :s 1C ]
-"67
-[; ;main.c: 67:     { lcdInst(0x80 | LCD_LINE2_ADDR);};
+"62
+[; ;main.c: 62:     { lcdInst(0x80 | LCD_LINE2_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE2_ADDR `i `uc ]
 }
-"68
-[; ;main.c: 68:     printf("to start");
+"63
+[; ;main.c: 63:     printf("to start");
 [e ( _printf :s 2C ]
-"69
-[; ;main.c: 69:     { lcdInst(0x80 | LCD_LINE4_ADDR);};
+"64
+[; ;main.c: 64:     { lcdInst(0x80 | LCD_LINE4_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
 }
-"70
-[; ;main.c: 70:     printf("A for Ali ;)");
+"65
+[; ;main.c: 65:     printf("A for Ali ;)");
 [e ( _printf :s 3C ]
-"71
-[; ;main.c: 71:     while (!start) {continue; }
+"66
+[; ;main.c: 66:     while (!start) {continue; }
 [e $U 273  ]
 [e :U 274 ]
 {
@@ -728,85 +722,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 273 ]
 [e $ ! != -> _start `i -> 0 `i 274  ]
 [e :U 275 ]
-"74
-[; ;main.c: 74:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"69
+[; ;main.c: 69:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"75
-[; ;main.c: 75:     printf("It's ya boy Ali!");
+"70
+[; ;main.c: 70:     printf("It's ya boy Ali!");
 [e ( _printf :s 4C ]
-"76
-[; ;main.c: 76:     _delay((unsigned long)((4000)*(10000000/4000.0)));
+"71
+[; ;main.c: 71:     _delay((unsigned long)((4000)*(10000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"77
-[; ;main.c: 77:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+"72
+[; ;main.c: 72:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
 }
-"78
-[; ;main.c: 78:     printf("He gettin hot ");
+"73
+[; ;main.c: 73:     printf("He gettin hot ");
 [e ( _printf :s 5C ]
-"79
-[; ;main.c: 79:     _delay((unsigned long)((4000)*(10000000/4000.0)));
+"74
+[; ;main.c: 74:     _delay((unsigned long)((4000)*(10000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"81
-[; ;main.c: 81:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"76
+[; ;main.c: 76:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"82
-[; ;main.c: 82:     printf("Hi Cull !");
+"77
+[; ;main.c: 77:     printf("Hi Cull !");
 [e ( _printf :s 6C ]
-"83
-[; ;main.c: 83:     _delay((unsigned long)((4000)*(10000000/4000.0)));
+"78
+[; ;main.c: 78:     _delay((unsigned long)((4000)*(10000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"84
-[; ;main.c: 84:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+"79
+[; ;main.c: 79:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
 }
-"85
-[; ;main.c: 85:     printf("Almost done");
+"80
+[; ;main.c: 80:     printf("Almost done");
 [e ( _printf :s 7C ]
-"86
-[; ;main.c: 86:     { lcdInst(0x80 | LCD_LINE4_ADDR);};
+"81
+[; ;main.c: 81:     { lcdInst(0x80 | LCD_LINE4_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
 }
-"87
-[; ;main.c: 87:     _delay((unsigned long)((2000)*(10000000/4000.0)));
+"82
+[; ;main.c: 82:     _delay((unsigned long)((2000)*(10000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"88
-[; ;main.c: 88:     printf("AND DONE");
+"83
+[; ;main.c: 83:     printf("AND DONE");
 [e ( _printf :s 8C ]
-"89
-[; ;main.c: 89:     _delay((unsigned long)((4000)*(10000000/4000.0)));
+"84
+[; ;main.c: 84:     _delay((unsigned long)((4000)*(10000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"91
-[; ;main.c: 91:     start = 0;
+"86
+[; ;main.c: 86:     start = 0;
 [e = _start -> -> 0 `i `a ]
-"93
-[; ;main.c: 93:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"88
+[; ;main.c: 88:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"94
-[; ;main.c: 94:     printf("Press A to");
+"89
+[; ;main.c: 89:     printf("Press A to");
 [e ( _printf :s 9C ]
-"95
-[; ;main.c: 95:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+"90
+[; ;main.c: 90:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
 }
-"96
-[; ;main.c: 96:     printf("view results");
+"91
+[; ;main.c: 91:     printf("view results");
 [e ( _printf :s 10C ]
-"98
-[; ;main.c: 98:     while (!start) {continue; }
+"93
+[; ;main.c: 93:     while (!start) {continue; }
 [e $U 276  ]
 [e :U 277 ]
 {
@@ -815,498 +809,646 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 276 ]
 [e $ ! != -> _start `i -> 0 `i 277  ]
 [e :U 278 ]
-"101
-[; ;main.c: 101:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"95
+[; ;main.c: 95:     error = 1;
+[e = _error -> 1 `i ]
+"98
+[; ;main.c: 98:     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"102
-[; ;main.c: 102:     printf("Canister Index");
+"99
+[; ;main.c: 99:     printf("Canister Index");
 [e ( _printf :s 11C ]
-"103
-[; ;main.c: 103:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+"100
+[; ;main.c: 100:     { lcdInst(0x80 | LCD_LINE3_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
 }
-"104
-[; ;main.c: 104:     printf("starts at 0");
+"101
+[; ;main.c: 101:     printf("starts at 0");
 [e ( _printf :s 12C ]
-"105
-[; ;main.c: 105:     _delay((unsigned long)((4000)*(10000000/4000.0)));
+"102
+[; ;main.c: 102:     _delay((unsigned long)((4000)*(10000000/4000.0)));
 [e ( __delay (1 -> * -> -> 4000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-"109
-[; ;main.c: 109:     while(1){
+"106
+[; ;main.c: 106:     while(1){
 [e :U 280 ]
 {
-"112
-[; ;main.c: 112:         if (state == 0 & clear == 1) {
+"109
+[; ;main.c: 109:         int state = 0;
+[v _state `i ~T0 @X0 1 a ]
+[e = _state -> 0 `i ]
+"110
+[; ;main.c: 110:         int tick = 0;
+[v _tick `i ~T0 @X0 1 a ]
+[e = _tick -> 0 `i ]
+"111
+[; ;main.c: 111:         int clear = 1;
+[v _clear `i ~T0 @X0 1 a ]
+[e = _clear -> 1 `i ]
+"113
+[; ;main.c: 113:         key_was_pressed = 0;
+[e = _key_was_pressed -> -> 0 `i `a ]
+"114
+[; ;main.c: 114:         exit_key = 0;
+[e = _exit_key -> -> 0 `i `a ]
+"116
+[; ;main.c: 116:         if (state == 0 & clear == 1) {
 [e $ ! & == _state -> 0 `i == _clear -> 1 `i 282  ]
 {
-"113
-[; ;main.c: 113:         { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"117
+[; ;main.c: 117:         { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"114
-[; ;main.c: 114:         printf("Operation Time");
+"118
+[; ;main.c: 118:         printf("Operation Time");
 [e ( _printf :s 13C ]
-"115
-[; ;main.c: 115:         { lcdInst(0x80 | LCD_LINE3_ADDR);};
+"119
+[; ;main.c: 119:         { lcdInst(0x80 | LCD_LINE3_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
 }
-"116
-[; ;main.c: 116:         printf("%d seconds", time);
+"120
+[; ;main.c: 120:         printf("%d seconds", time);
 [e ( _printf , (. :s 14C _time ]
-"117
-[; ;main.c: 117:         clear = 0;
+"121
+[; ;main.c: 121:         clear = 0;
 [e = _clear -> 0 `i ]
-"119
-[; ;main.c: 119:         }
+"123
+[; ;main.c: 123:         }
 }
 [e :U 282 ]
-"121
-[; ;main.c: 121:         if (state == 1 & clear == 1) {
+"125
+[; ;main.c: 125:         if (state == 1 & clear == 1) {
 [e $ ! & == _state -> 1 `i == _clear -> 1 `i 283  ]
 {
-"123
-[; ;main.c: 123:             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"127
+[; ;main.c: 127:             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"124
-[; ;main.c: 124:             { lcdInst(0x80 | LCD_LINE1_ADDR);};
+"128
+[; ;main.c: 128:             { lcdInst(0x80 | LCD_LINE1_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE1_ADDR `i `uc ]
 }
-"125
-[; ;main.c: 125:             printf("# of Canisters");
+"129
+[; ;main.c: 129:             printf("# of Canisters");
 [e ( _printf :s 15C ]
-"126
-[; ;main.c: 126:             { lcdInst(0x80 | LCD_LINE3_ADDR);};
+"130
+[; ;main.c: 130:             { lcdInst(0x80 | LCD_LINE3_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
 }
-"127
-[; ;main.c: 127:             printf("%d Canisters", Canister);
+"131
+[; ;main.c: 131:             printf("%d Canisters", Canister);
 [e ( _printf , (. :s 16C _Canister ]
-"128
-[; ;main.c: 128:             clear = 0;
+"132
+[; ;main.c: 132:             clear = 0;
 [e = _clear -> 0 `i ]
-"130
-[; ;main.c: 130:         }
+"134
+[; ;main.c: 134:         }
 }
 [e $U 284  ]
-"132
-[; ;main.c: 132:         else if (state == 2 & clear == 1) {
+"136
+[; ;main.c: 136:         else if (state == 2 & clear == 1) {
 [e :U 283 ]
 [e $ ! & == _state -> 2 `i == _clear -> 1 `i 285  ]
 {
-"134
-[; ;main.c: 134:             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"138
+[; ;main.c: 138:             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"135
-[; ;main.c: 135:             printf("# of Balls");
+"139
+[; ;main.c: 139:             printf("# of Balls");
 [e ( _printf :s 17C ]
-"136
-[; ;main.c: 136:             { lcdInst(0x80 | LCD_LINE2_ADDR);};
+"140
+[; ;main.c: 140:             { lcdInst(0x80 | LCD_LINE2_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE2_ADDR `i `uc ]
 }
-"137
-[; ;main.c: 137:             printf("supplied");
+"141
+[; ;main.c: 141:             printf("supplied");
 [e ( _printf :s 18C ]
-"138
-[; ;main.c: 138:             { lcdInst(0x80 | LCD_LINE4_ADDR);};
+"142
+[; ;main.c: 142:             { lcdInst(0x80 | LCD_LINE4_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
 }
-"139
-[; ;main.c: 139:             printf("%d balls", balls);
+"143
+[; ;main.c: 143:             printf("%d balls", balls);
 [e ( _printf , (. :s 19C _balls ]
-"140
-[; ;main.c: 140:             clear = 0;
+"144
+[; ;main.c: 144:             clear = 0;
 [e = _clear -> 0 `i ]
-"142
-[; ;main.c: 142:         }
+"146
+[; ;main.c: 146:         }
 }
 [e $U 286  ]
-"144
-[; ;main.c: 144:         else if (state == 3 & clear == 1) {
+"148
+[; ;main.c: 148:         else if (state == 3 & clear == 1) {
 [e :U 285 ]
 [e $ ! & == _state -> 3 `i == _clear -> 1 `i 287  ]
 {
-"146
-[; ;main.c: 146:             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"150
+[; ;main.c: 150:             { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"147
-[; ;main.c: 147:             printf("Individual Info");
+"151
+[; ;main.c: 151:             printf("Individual Info");
 [e ( _printf :s 20C ]
-"148
-[; ;main.c: 148:             { lcdInst(0x80 | LCD_LINE2_ADDR);};
+"152
+[; ;main.c: 152:             { lcdInst(0x80 | LCD_LINE2_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE2_ADDR `i `uc ]
 }
-"149
-[; ;main.c: 149:             printf("of Canister");
+"153
+[; ;main.c: 153:             printf("of Canister");
 [e ( _printf :s 21C ]
-"150
-[; ;main.c: 150:             { lcdInst(0x80 | LCD_LINE4_ADDR);};
+"154
+[; ;main.c: 154:             { lcdInst(0x80 | LCD_LINE4_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
 }
-"151
-[; ;main.c: 151:             printf("Press 0 to %d ", Canister-1);
+"155
+[; ;main.c: 155:             printf("Press 0 to %d ", Canister-1);
 [e ( _printf , (. :s 22C - _Canister -> 1 `i ]
-"152
-[; ;main.c: 152:             clear = 0;
+"156
+[; ;main.c: 156:             clear = 0;
 [e = _clear -> 0 `i ]
-"154
-[; ;main.c: 154:         }
+"158
+[; ;main.c: 158:         }
 }
 [e :U 287 ]
 [e :U 286 ]
 [e :U 284 ]
-"156
-[; ;main.c: 156:         if(key_was_pressed){
+"160
+[; ;main.c: 160:         if(key_was_pressed){
 [e $ ! != -> _key_was_pressed `i -> 0 `i 288  ]
 {
-"158
-[; ;main.c: 158:             unsigned char keypress = (PORTB & 0xF0) >> 4;
+"162
+[; ;main.c: 162:             unsigned char keypress = (PORTB & 0xF0) >> 4;
 [v _keypress `uc ~T0 @X0 1 a ]
 [e = _keypress -> >> & -> _PORTB `i -> 240 `i -> 4 `i `uc ]
-"159
-[; ;main.c: 159:             int miniTick = 0;
+"163
+[; ;main.c: 163:             int miniTick = 0;
 [v _miniTick `i ~T0 @X0 1 a ]
 [e = _miniTick -> 0 `i ]
-"160
-[; ;main.c: 160:             int miniState = 0;
+"164
+[; ;main.c: 164:             int miniState = 0;
 [v _miniState `i ~T0 @X0 1 a ]
 [e = _miniState -> 0 `i ]
-"161
-[; ;main.c: 161:             int miniClear = 1;
+"165
+[; ;main.c: 165:             int miniClear = 1;
 [v _miniClear `i ~T0 @X0 1 a ]
 [e = _miniClear -> 1 `i ]
-"163
-[; ;main.c: 163:             int number_pressed = (int) (keys[keypress] - '0');
+"167
+[; ;main.c: 167:             int number_pressed = (int) (keys[keypress] - '0');
 [v _number_pressed `i ~T0 @X0 1 a ]
 [e = _number_pressed -> - -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `ui -> 48 `ui `i ]
-"165
-[; ;main.c: 165:             while(!exit_key) {
+"169
+[; ;main.c: 169:             while(!exit_key) {
 [e $U 289  ]
 [e :U 290 ]
 {
-"167
-[; ;main.c: 167:                 if (miniState == 0 & miniClear == 1) {
+"171
+[; ;main.c: 171:                 if (miniState == 0 & miniClear == 1) {
 [e $ ! & == _miniState -> 0 `i == _miniClear -> 1 `i 292  ]
 {
-"169
-[; ;main.c: 169:                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+"173
+[; ;main.c: 173:                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
-}
-"170
-[; ;main.c: 170:                     printf("Cansiter %c", keys[keypress]);
-[e ( _printf , (. :s 23C -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `i ]
-"171
-[; ;main.c: 171:                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
-{
-[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
-}
-"172
-[; ;main.c: 172:                     printf("Distance %d cm", DistanceCanister[number_pressed] );
-[e ( _printf , (. :s 24C *U + &U _DistanceCanister * -> -> _number_pressed `ui `ux -> -> # *U &U _DistanceCanister `ui `ux ]
-"173
-[; ;main.c: 173:                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
-{
-[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
 }
 "174
-[; ;main.c: 174:                     printf("* to exit");
-[e ( _printf :s 25C ]
+[; ;main.c: 174:                     printf("Cansiter %c", keys[keypress]);
+[e ( _printf , (. :s 23C -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `i ]
 "175
-[; ;main.c: 175:                     miniClear = 0;
-[e = _miniClear -> 0 `i ]
+[; ;main.c: 175:                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+{
+[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
+}
 "176
-[; ;main.c: 176:                 }
+[; ;main.c: 176:                     printf("Distance %d cm", DistanceCanister[number_pressed] );
+[e ( _printf , (. :s 24C *U + &U _DistanceCanister * -> -> _number_pressed `ui `ux -> -> # *U &U _DistanceCanister `ui `ux ]
+"177
+[; ;main.c: 177:                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
+{
+[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
 }
-[e :U 292 ]
 "178
-[; ;main.c: 178:                 if (miniState == 1 & miniClear == 1) {
-[e $ ! & == _miniState -> 1 `i == _miniClear -> 1 `i 293  ]
-{
+[; ;main.c: 178:                     printf("* to exit");
+[e ( _printf :s 25C ]
+"179
+[; ;main.c: 179:                     miniClear = 0;
+[e = _miniClear -> 0 `i ]
 "180
-[; ;main.c: 180:                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
-{
-[e ( _lcdInst (1 -> -> 1 `i `uc ]
-[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+[; ;main.c: 180:                 }
 }
-"181
-[; ;main.c: 181:                     printf("Cansiter %c", keys[keypress]);
-[e ( _printf , (. :s 26C -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `i ]
+[e $U 293  ]
 "182
-[; ;main.c: 182:                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+[; ;main.c: 182:                 else if (miniState == 1 & miniClear == 1) {
+[e :U 292 ]
+[e $ ! & == _miniState -> 1 `i == _miniClear -> 1 `i 294  ]
 {
-[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
-}
-"183
-[; ;main.c: 183:                     if (State[number_pressed] == 1)
-[e $ ! == *U + &U _State * -> -> _number_pressed `ui `ux -> -> # *U &U _State `ui `ux -> 1 `i 294  ]
 "184
-[; ;main.c: 184:                         printf("Canister Full");
-[e ( _printf :s 27C ]
-[e $U 295  ]
-"185
-[; ;main.c: 185:                     else
-[e :U 294 ]
-"186
-[; ;main.c: 186:                         printf("Canister Empty");
-[e ( _printf :s 28C ]
-[e :U 295 ]
-"187
-[; ;main.c: 187:                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
-{
-[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
-}
-"188
-[; ;main.c: 188:                     printf("* to exit");
-[e ( _printf :s 29C ]
-"189
-[; ;main.c: 189:                     miniClear = 0;
-[e = _miniClear -> 0 `i ]
-"190
-[; ;main.c: 190:                 }
-}
-[e :U 293 ]
-"192
-[; ;main.c: 192:                 if (miniState == 2 & miniClear == 1) {
-[e $ ! & == _miniState -> 2 `i == _miniClear -> 1 `i 296  ]
-{
-"194
-[; ;main.c: 194:                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+[; ;main.c: 184:                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
 {
 [e ( _lcdInst (1 -> -> 1 `i `uc ]
 [e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-"195
-[; ;main.c: 195:                     printf("Cansiter %c", keys[keypress]);
-[e ( _printf , (. :s 30C -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `i ]
-"196
-[; ;main.c: 196:                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+"185
+[; ;main.c: 185:                     printf("Cansiter %c", keys[keypress]);
+[e ( _printf , (. :s 26C -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `i ]
+"186
+[; ;main.c: 186:                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
 }
-"197
-[; ;main.c: 197:                     if (BallDispensed[number_pressed] == 1)
-[e $ ! == *U + &U _BallDispensed * -> -> _number_pressed `ui `ux -> -> # *U &U _BallDispensed `ui `ux -> 1 `i 297  ]
-"198
-[; ;main.c: 198:                         printf("Ball Added");
-[e ( _printf :s 31C ]
-[e $U 298  ]
-"199
-[; ;main.c: 199:                     else
-[e :U 297 ]
-"200
-[; ;main.c: 200:                         printf("No Ball Added");
-[e ( _printf :s 32C ]
-[e :U 298 ]
-"201
-[; ;main.c: 201:                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
+"187
+[; ;main.c: 187:                     if (State[number_pressed] == 1)
+[e $ ! == *U + &U _State * -> -> _number_pressed `ui `ux -> -> # *U &U _State `ui `ux -> 1 `i 295  ]
+"188
+[; ;main.c: 188:                         printf("Canister Full");
+[e ( _printf :s 27C ]
+[e $U 296  ]
+"189
+[; ;main.c: 189:                     else
+[e :U 295 ]
+"190
+[; ;main.c: 190:                         printf("Canister Empty");
+[e ( _printf :s 28C ]
+[e :U 296 ]
+"191
+[; ;main.c: 191:                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
 {
 [e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
 }
-"202
-[; ;main.c: 202:                     printf("* to exit");
-[e ( _printf :s 33C ]
-"205
-[; ;main.c: 205:                     miniClear = 0;
+"192
+[; ;main.c: 192:                     printf("* to exit");
+[e ( _printf :s 29C ]
+"193
+[; ;main.c: 193:                     miniClear = 0;
 [e = _miniClear -> 0 `i ]
-"206
-[; ;main.c: 206:                 }
+"194
+[; ;main.c: 194:                 }
 }
-[e :U 296 ]
-"208
-[; ;main.c: 208:                 if (miniTick == 3000) {
-[e $ ! == _miniTick -> 3000 `i 299  ]
+[e $U 297  ]
+"196
+[; ;main.c: 196:                 else if (miniState == 2 & miniClear == 1) {
+[e :U 294 ]
+[e $ ! & == _miniState -> 2 `i == _miniClear -> 1 `i 298  ]
 {
-"209
-[; ;main.c: 209:                     miniClear = 1;
-[e = _miniClear -> 1 `i ]
-"210
-[; ;main.c: 210:                     miniState++;
-[e ++ _miniState -> 1 `i ]
-"211
-[; ;main.c: 211:                     miniState = miniState % 3;
-[e = _miniState % _miniState -> 3 `i ]
-"212
-[; ;main.c: 212:                     miniTick = 0;
-[e = _miniTick -> 0 `i ]
-"213
-[; ;main.c: 213:                 }
+"198
+[; ;main.c: 198:                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+{
+[e ( _lcdInst (1 -> -> 1 `i `uc ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
+"199
+[; ;main.c: 199:                     printf("Cansiter %c", keys[keypress]);
+[e ( _printf , (. :s 30C -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `i ]
+"200
+[; ;main.c: 200:                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+{
+[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
+}
+"201
+[; ;main.c: 201:                     if (BallDispensed[number_pressed] == 1)
+[e $ ! == *U + &U _BallDispensed * -> -> _number_pressed `ui `ux -> -> # *U &U _BallDispensed `ui `ux -> 1 `i 299  ]
+"202
+[; ;main.c: 202:                         printf("Ball Added");
+[e ( _printf :s 31C ]
+[e $U 300  ]
+"203
+[; ;main.c: 203:                     else
 [e :U 299 ]
+"204
+[; ;main.c: 204:                         printf("No Ball Added");
+[e ( _printf :s 32C ]
+[e :U 300 ]
+"205
+[; ;main.c: 205:                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
+{
+[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE4_ADDR `i `uc ]
+}
+"206
+[; ;main.c: 206:                     printf("* to exit");
+[e ( _printf :s 33C ]
+"209
+[; ;main.c: 209:                     miniClear = 0;
+[e = _miniClear -> 0 `i ]
+"210
+[; ;main.c: 210:                 }
+}
+[e :U 298 ]
+[e :U 297 ]
+[e :U 293 ]
+"212
+[; ;main.c: 212:                 if (miniTick == 3000) {
+[e $ ! == _miniTick -> 3000 `i 301  ]
+{
+"213
+[; ;main.c: 213:                     miniClear = 1;
+[e = _miniClear -> 1 `i ]
+"214
+[; ;main.c: 214:                     miniState++;
+[e ++ _miniState -> 1 `i ]
 "215
-[; ;main.c: 215:                 miniTick++;
-[e ++ _miniTick -> 1 `i ]
+[; ;main.c: 215:                     miniState = miniState % 3;
+[e = _miniState % _miniState -> 3 `i ]
 "216
-[; ;main.c: 216:                 _delay((unsigned long)((1)*(10000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+[; ;main.c: 216:                     miniTick = 0;
+[e = _miniTick -> 0 `i ]
+"217
+[; ;main.c: 217:                 }
+}
+[e :U 301 ]
 "219
-[; ;main.c: 219:             }
+[; ;main.c: 219:                 miniTick++;
+[e ++ _miniTick -> 1 `i ]
+"220
+[; ;main.c: 220:                 _delay((unsigned long)((1)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"223
+[; ;main.c: 223:             }
 }
 [e :U 289 ]
-"165
-[; ;main.c: 165:             while(!exit_key) {
+"169
+[; ;main.c: 169:             while(!exit_key) {
 [e $ ! != -> _exit_key `i -> 0 `i 290  ]
 [e :U 291 ]
-"221
-[; ;main.c: 221:             key_was_pressed = 0;
+"225
+[; ;main.c: 225:             key_was_pressed = 0;
 [e = _key_was_pressed -> -> 0 `i `a ]
-"222
-[; ;main.c: 222:             exit_key = 0;
+"226
+[; ;main.c: 226:             exit_key = 0;
 [e = _exit_key -> -> 0 `i `a ]
-"224
-[; ;main.c: 224:         }
+"228
+[; ;main.c: 228:         }
 }
 [e :U 288 ]
-"226
-[; ;main.c: 226:         if (tick == 2000) {
-[e $ ! == _tick -> 2000 `i 300  ]
-{
-"227
-[; ;main.c: 227:             clear = 1;
-[e = _clear -> 1 `i ]
-"228
-[; ;main.c: 228:             state++;
-[e ++ _state -> 1 `i ]
-"229
-[; ;main.c: 229:             state = state % 4;
-[e = _state % _state -> 4 `i ]
 "230
-[; ;main.c: 230:             tick = 0;
-[e = _tick -> 0 `i ]
+[; ;main.c: 230:         if (tick == 2000) {
+[e $ ! == _tick -> 2000 `i 302  ]
+{
 "231
-[; ;main.c: 231:         }
-}
-[e :U 300 ]
+[; ;main.c: 231:             clear = 1;
+[e = _clear -> 1 `i ]
+"232
+[; ;main.c: 232:             state++;
+[e ++ _state -> 1 `i ]
 "233
-[; ;main.c: 233:         tick++;
-[e ++ _tick -> 1 `i ]
+[; ;main.c: 233:             state = state % 4;
+[e = _state % _state -> 4 `i ]
 "234
-[; ;main.c: 234:         _delay((unsigned long)((1)*(10000000/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+[; ;main.c: 234:             tick = 0;
+[e = _tick -> 0 `i ]
+"235
+[; ;main.c: 235:         }
+}
+[e :U 302 ]
 "237
-[; ;main.c: 237:     }
+[; ;main.c: 237:         tick++;
+[e ++ _tick -> 1 `i ]
+"238
+[; ;main.c: 238:         _delay((unsigned long)((1)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"241
+[; ;main.c: 241:     }
 }
 [e :U 279 ]
 [e $U 280  ]
 [e :U 281 ]
-"238
-[; ;main.c: 238: }
+"242
+[; ;main.c: 242: }
 [e :UE 272 ]
 }
 [v $root$_interruptHandler `(v ~T0 @X0 0 e ]
-"242
-[; ;main.c: 242: void __attribute__((picinterrupt(("")))) interruptHandler(void){
+"246
+[; ;main.c: 246: void __attribute__((picinterrupt(("")))) interruptHandler(void){
 [v _interruptHandler `(v ~T39 @X0 1 ef ]
 {
 [e :U _interruptHandler ]
 [f ]
-"244
-[; ;main.c: 244:     if(INT1IF){
-[e $ ! _INT1IF 302  ]
-{
 "248
-[; ;main.c: 248:         INT1IF = 0;
+[; ;main.c: 248:     if(INT1IF){
+[e $ ! _INT1IF 304  ]
+{
+"252
+[; ;main.c: 252:         INT1IF = 0;
 [e = _INT1IF -> -> 0 `i `b ]
-"250
-[; ;main.c: 250:         unsigned char keypress = (PORTB & 0xF0) >> 4;
+"254
+[; ;main.c: 254:         unsigned char keypress = (PORTB & 0xF0) >> 4;
 [v _keypress `uc ~T0 @X0 1 a ]
 [e = _keypress -> >> & -> _PORTB `i -> 240 `i -> 4 `i `uc ]
-"252
-[; ;main.c: 252:         if (keys[keypress] == 'A') {
-[e $ ! == -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `ui -> 65 `ui 303  ]
-{
-"254
-[; ;main.c: 254:             start = 1;
-[e = _start -> -> 1 `i `a ]
-"255
-[; ;main.c: 255:             return;
-[e $UE 301  ]
 "256
-[; ;main.c: 256:         }
-}
-[e :U 303 ]
+[; ;main.c: 256:         if (keys[keypress] == 'A') {
+[e $ ! == -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `ui -> 65 `ui 305  ]
+{
 "258
-[; ;main.c: 258:         if (keys[keypress] == '*') {
-[e $ ! == -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `ui -> 42 `ui 304  ]
+[; ;main.c: 258:             if (error == 1) {
+[e $ ! == _error -> 1 `i 306  ]
 {
 "260
-[; ;main.c: 260:             exit_key = 1;
-[e = _exit_key -> -> 1 `i `a ]
-"261
-[; ;main.c: 261:             return;
-[e $UE 301  ]
-"262
-[; ;main.c: 262:         }
+[; ;main.c: 260:                 { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+{
+[e ( _lcdInst (1 -> -> 1 `i `uc ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-[e :U 304 ]
+"261
+[; ;main.c: 261:                 printf("Error: Press");
+[e ( _printf :s 34C ]
+"262
+[; ;main.c: 262:                 { lcdInst(0x80 | LCD_LINE3_ADDR);};
+{
+[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
+}
+"263
+[; ;main.c: 263:                 printf("Correct  Key");
+[e ( _printf :s 35C ]
 "264
-[; ;main.c: 264:         for ( int i = 0; i < Canister; i++ ) {
+[; ;main.c: 264:                 _delay((unsigned long)((2000)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"265
+[; ;main.c: 265:                 return;
+[e $UE 303  ]
+"266
+[; ;main.c: 266:             }
+}
+[e $U 307  ]
+"268
+[; ;main.c: 268:             else {
+[e :U 306 ]
+{
+"270
+[; ;main.c: 270:                 start = 1;
+[e = _start -> -> 1 `i `a ]
+"271
+[; ;main.c: 271:                 return;
+[e $UE 303  ]
+"273
+[; ;main.c: 273:             }
+}
+[e :U 307 ]
+"274
+[; ;main.c: 274:         }
+}
+[e :U 305 ]
+"276
+[; ;main.c: 276:         if (keys[keypress] == '*') {
+[e $ ! == -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `ui -> 42 `ui 308  ]
+{
+"278
+[; ;main.c: 278:             if (error == 0) {
+[e $ ! == _error -> 0 `i 309  ]
+{
+"280
+[; ;main.c: 280:                 { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+{
+[e ( _lcdInst (1 -> -> 1 `i `uc ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+}
+"281
+[; ;main.c: 281:                 printf("Error: Press");
+[e ( _printf :s 36C ]
+"282
+[; ;main.c: 282:                 { lcdInst(0x80 | LCD_LINE3_ADDR);};
+{
+[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
+}
+"283
+[; ;main.c: 283:                 printf("A  Key");
+[e ( _printf :s 37C ]
+"284
+[; ;main.c: 284:                 _delay((unsigned long)((2000)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"285
+[; ;main.c: 285:                 return;
+[e $UE 303  ]
+"286
+[; ;main.c: 286:             }
+}
+[e $U 310  ]
+"288
+[; ;main.c: 288:             else {
+[e :U 309 ]
+{
+"289
+[; ;main.c: 289:                 exit_key = 1;
+[e = _exit_key -> -> 1 `i `a ]
+"290
+[; ;main.c: 290:                 return;
+[e $UE 303  ]
+"291
+[; ;main.c: 291:             }
+}
+[e :U 310 ]
+"292
+[; ;main.c: 292:         }
+}
+[e :U 308 ]
+"294
+[; ;main.c: 294:         for ( int i = 0; i < Canister; i++ ) {
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 308  ]
-[e :U 305 ]
+[e $U 314  ]
+[e :U 311 ]
 {
-"266
-[; ;main.c: 266:             if ((char)i + '0' == keys[keypress]) {
-[e $ ! == + -> -> _i `uc `ui -> 48 `ui -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `ui 309  ]
+"296
+[; ;main.c: 296:             if ((char)i + '0' == keys[keypress]) {
+[e $ ! == + -> -> _i `uc `ui -> 48 `ui -> *U + &U _keys * -> _keypress `ux -> -> # *U &U _keys `ui `ux `ui 315  ]
 {
-"267
-[; ;main.c: 267:                 key_was_pressed = 1;
-[e = _key_was_pressed -> -> 1 `i `a ]
-"268
-[; ;main.c: 268:                 return;
-[e $UE 301  ]
-"269
-[; ;main.c: 269:             }
+"298
+[; ;main.c: 298:                 if (error == 0) {
+[e $ ! == _error -> 0 `i 316  ]
+{
+"300
+[; ;main.c: 300:                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+{
+[e ( _lcdInst (1 -> -> 1 `i `uc ]
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
 }
-[e :U 309 ]
-"271
-[; ;main.c: 271:         }
+"301
+[; ;main.c: 301:                     printf("Error: Press");
+[e ( _printf :s 38C ]
+"302
+[; ;main.c: 302:                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
+{
+[e ( _lcdInst (1 -> | -> 128 `i -> _LCD_LINE3_ADDR `i `uc ]
+}
+"303
+[; ;main.c: 303:                     printf("A  Key");
+[e ( _printf :s 39C ]
+"304
+[; ;main.c: 304:                     _delay((unsigned long)((2000)*(10000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 10000000 `l `d .4000.0 `ul ]
+"305
+[; ;main.c: 305:                     return;
+[e $UE 303  ]
+"306
+[; ;main.c: 306:                 }
+}
+[e $U 317  ]
+"308
+[; ;main.c: 308:                 else {
+[e :U 316 ]
+{
+"309
+[; ;main.c: 309:                 key_was_pressed = 1;
+[e = _key_was_pressed -> -> 1 `i `a ]
+"310
+[; ;main.c: 310:                 return;
+[e $UE 303  ]
+"311
+[; ;main.c: 311:                 }
+}
+[e :U 317 ]
+"312
+[; ;main.c: 312:             }
+}
+[e :U 315 ]
+"314
+[; ;main.c: 314:         }
 }
 [e ++ _i -> 1 `i ]
-[e :U 308 ]
-[e $ < _i _Canister 305  ]
-[e :U 306 ]
+[e :U 314 ]
+[e $ < _i _Canister 311  ]
+[e :U 312 ]
 }
-"274
-[; ;main.c: 274:     }
+"317
+[; ;main.c: 317:     }
 }
-[e :U 302 ]
-"275
-[; ;main.c: 275: }
-[e :UE 301 ]
+[e :U 304 ]
+"318
+[; ;main.c: 318: }
+[e :UE 303 ]
 }
 [p f _printf 8913024 ]
 [a 28C 67 97 110 105 115 116 101 114 32 69 109 112 116 121 0 ]
+[a 35C 67 111 114 114 101 99 116 32 32 75 101 121 0 ]
+[a 37C 65 32 32 75 101 121 0 ]
+[a 39C 65 32 32 75 101 121 0 ]
 [a 11C 67 97 110 105 115 116 101 114 32 73 110 100 101 120 0 ]
 [a 2C 116 111 32 115 116 97 114 116 0 ]
 [a 25C 42 32 116 111 32 101 120 105 116 0 ]
 [a 29C 42 32 116 111 32 101 120 105 116 0 ]
 [a 33C 42 32 116 111 32 101 120 105 116 0 ]
 [a 10C 118 105 101 119 32 114 101 115 117 108 116 115 0 ]
+[a 34C 69 114 114 111 114 58 32 80 114 101 115 115 0 ]
+[a 36C 69 114 114 111 114 58 32 80 114 101 115 115 0 ]
+[a 38C 69 114 114 111 114 58 32 80 114 101 115 115 0 ]
 [a 15C 35 32 111 102 32 67 97 110 105 115 116 101 114 115 0 ]
 [a 16C 37 100 32 67 97 110 105 115 116 101 114 115 0 ]
 [a 19C 37 100 32 98 97 108 108 115 0 ]

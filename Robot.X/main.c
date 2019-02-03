@@ -23,6 +23,7 @@ const char keys[] = "123A456B789C*0#D";
 volatile bool key_was_pressed = false;
 volatile bool exit_key = false;
 volatile bool start = false;
+int error = 0; // 0 for A to start, 1 for unaccpeted request  
 
 
 // Universal Data
@@ -52,13 +53,7 @@ void main(void) {
     
     // Enable interrupts
     ei();
-    
-    
-    int state = 0; // Status of GUI screen
-    int tick = 0;
-    int clear = 1; // 1 to clear, 0 to not
-    
-    
+     
     // Wait to start 
     
     lcd_display_control(true, false, false);
@@ -96,6 +91,8 @@ void main(void) {
     printf("view results");
 
     while (!start) {continue; }
+    
+    error = 1;
 
     
     lcd_clear();
@@ -108,6 +105,13 @@ void main(void) {
     // Finish loop
     while(1){
         // Different GUI menu
+        
+        int state = 0; // Status of GUI screen
+        int tick = 0;
+        int clear = 1; // 1 to clear, 0 to not
+        
+        key_was_pressed = false; // Clear accidental flag
+        exit_key = false;
         
         if (state == 0 & clear == 1) {
         lcd_clear();
@@ -175,7 +179,7 @@ void main(void) {
                     miniClear = 0;
                 }
                 
-                if (miniState == 1 & miniClear == 1) {
+                else if (miniState == 1 & miniClear == 1) {
             
                     lcd_clear();
                     printf("Cansiter %c", keys[keypress]);
@@ -189,7 +193,7 @@ void main(void) {
                     miniClear = 0;
                 }
                 
-                if (miniState == 2 & miniClear == 1) {
+                else if (miniState == 2 & miniClear == 1) {
             
                     lcd_clear();
                     printf("Cansiter %c", keys[keypress]);
@@ -251,21 +255,60 @@ void __interrupt() interruptHandler(void){
         
         if (keys[keypress] == 'A') {
             
-            start = true;
-            return;
+            if (error == 1) { 
+                
+                lcd_clear();
+                printf("Error: Press");
+                lcd_set_ddram_addr(LCD_LINE3_ADDR);
+                printf("Correct  Key");
+                __delay_ms(2000);
+                return;
+            }
+            
+            else {
+                
+                start = true;
+                return;
+                
+            }
         }
 
         if (keys[keypress] == '*') {
             
-            exit_key = true;
-            return;
+            if (error == 0) { 
+                
+                lcd_clear();
+                printf("Error: Press");
+                lcd_set_ddram_addr(LCD_LINE3_ADDR);
+                printf("A  Key");
+                __delay_ms(2000);
+                return;
+            }            
+            
+            else {
+                exit_key = true;
+                return;
+            }
         }
         
         for ( int i = 0; i < Canister; i++ ) {
             
             if ((char)i + '0' == keys[keypress]) {
+                
+                if (error == 0) { 
+                
+                    lcd_clear();
+                    printf("Error: Press");
+                    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+                    printf("A  Key");
+                    __delay_ms(2000);
+                    return;
+                }
+                
+                else {
                 key_was_pressed = true;
                 return;
+                }
             }
 
         }

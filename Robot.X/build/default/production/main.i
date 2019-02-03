@@ -5196,6 +5196,7 @@ const char keys[] = "123A456B789C*0#D";
 volatile _Bool key_was_pressed = 0;
 volatile _Bool exit_key = 0;
 volatile _Bool start = 0;
+int error = 0;
 
 
 
@@ -5225,12 +5226,6 @@ void main(void) {
 
 
     (INTCONbits.GIE = 1);
-
-
-    int state = 0;
-    int tick = 0;
-    int clear = 1;
-
 
 
 
@@ -5270,6 +5265,8 @@ void main(void) {
 
     while (!start) {continue; }
 
+    error = 1;
+
 
     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
     printf("Canister Index");
@@ -5281,6 +5278,13 @@ void main(void) {
 
     while(1){
 
+
+        int state = 0;
+        int tick = 0;
+        int clear = 1;
+
+        key_was_pressed = 0;
+        exit_key = 0;
 
         if (state == 0 & clear == 1) {
         { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
@@ -5348,7 +5352,7 @@ void main(void) {
                     miniClear = 0;
                 }
 
-                if (miniState == 1 & miniClear == 1) {
+                else if (miniState == 1 & miniClear == 1) {
 
                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
                     printf("Cansiter %c", keys[keypress]);
@@ -5362,7 +5366,7 @@ void main(void) {
                     miniClear = 0;
                 }
 
-                if (miniState == 2 & miniClear == 1) {
+                else if (miniState == 2 & miniClear == 1) {
 
                     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
                     printf("Cansiter %c", keys[keypress]);
@@ -5424,21 +5428,60 @@ void __attribute__((picinterrupt(("")))) interruptHandler(void){
 
         if (keys[keypress] == 'A') {
 
-            start = 1;
-            return;
+            if (error == 1) {
+
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                printf("Error: Press");
+                { lcdInst(0x80 | LCD_LINE3_ADDR);};
+                printf("Correct  Key");
+                _delay((unsigned long)((2000)*(10000000/4000.0)));
+                return;
+            }
+
+            else {
+
+                start = 1;
+                return;
+
+            }
         }
 
         if (keys[keypress] == '*') {
 
-            exit_key = 1;
-            return;
+            if (error == 0) {
+
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                printf("Error: Press");
+                { lcdInst(0x80 | LCD_LINE3_ADDR);};
+                printf("A  Key");
+                _delay((unsigned long)((2000)*(10000000/4000.0)));
+                return;
+            }
+
+            else {
+                exit_key = 1;
+                return;
+            }
         }
 
         for ( int i = 0; i < Canister; i++ ) {
 
             if ((char)i + '0' == keys[keypress]) {
+
+                if (error == 0) {
+
+                    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                    printf("Error: Press");
+                    { lcdInst(0x80 | LCD_LINE3_ADDR);};
+                    printf("A  Key");
+                    _delay((unsigned long)((2000)*(10000000/4000.0)));
+                    return;
+                }
+
+                else {
                 key_was_pressed = 1;
                 return;
+                }
             }
 
         }

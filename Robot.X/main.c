@@ -22,16 +22,17 @@ const char keys[] = "123A456B789C*0#D";
 
 volatile bool key_was_pressed = false;
 volatile bool exit_key = false;
+volatile bool start = false;
 
 
 // Universal Data
 
 int time = 30;
-int Canister = 7;
+int Canister = 8;
 int balls = 5;
-int State[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // Final Error -1 no info, 0 empty, 1 ball
-int DistanceCanister[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // -1 No info, int distance in cm
-int BallDispensed[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // -1 No info, 0 No ball dispensed, 1 Ball dispensed
+int State[10] = {1,1,1,0,0,1,1,0,-1,-1}; // Final Error -1 no info, 0 empty, 1 ball
+int DistanceCanister[10] = {20,30,40,59,123,212,332,400,-1,-1}; // -1 No info, int distance in cm
+int BallDispensed[10] = {1,1,1,0,0,1,1,0,-1,-1}; // -1 No info, 0 No ball dispensed, 1 Ball dispensed
     
 void main(void) {
     // RD2 is the character LCD RS
@@ -56,21 +57,42 @@ void main(void) {
     int state = 0; // Status of GUI screen
     int tick = 0;
     int clear = 1; // 1 to clear, 0 to not
-
+    
+    
+    // Wait to start 
+    
+    lcd_display_control(true, false, false);
+    lcd_clear();
+    printf("A to start");
+    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+    printf("A for Ali ;)");
+    while (!start) {continue; }
     
     // Entry to Gui
-    printf("It's ya boy Ali!");
-    __delay_ms(2000);
     lcd_clear();
+    printf("It's ya boy Ali!");
+    __delay_ms(4000);   
+    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+    printf("Ali's getting hot ");
+    __delay_ms(4000);
+
+    lcd_clear();
+    printf("Hi Cull !");
+    __delay_ms(4000);   
+    lcd_set_ddram_addr(LCD_LINE3_ADDR);
+    printf("Almost done");
+    __delay_ms(4000);
+
     
     
-    // Main loop
+    
+    
+    // Finish loop
     while(1){
         // Different GUI menu
         
         if (state == 0 & clear == 1) {
         lcd_clear();
-        lcd_display_control(true, false, false);
         printf("Operation Time");
         lcd_set_ddram_addr(LCD_LINE3_ADDR);
         printf("%d seconds", time);
@@ -165,7 +187,7 @@ void main(void) {
                     miniClear = 0;
                 }
                 
-                if (miniTick == 2000) {
+                if (miniTick == 3000) {
                     miniClear = 1;
                     miniState++;
                     miniState = miniState % 3; //make sure status is between 0 and 3
@@ -208,6 +230,12 @@ void __interrupt() interruptHandler(void){
         INT1IF = 0; // Clear interrupt flag bit to signify it's been handled
 
         unsigned char keypress = (PORTB & 0xF0) >> 4;
+        
+        if (keys[keypress] == 'A') {
+            
+            start = true;
+            return;
+        }
 
         if (keys[keypress] == '*') {
             

@@ -5195,16 +5195,17 @@ const char keys[] = "123A456B789C*0#D";
 
 volatile _Bool key_was_pressed = 0;
 volatile _Bool exit_key = 0;
+volatile _Bool start = 0;
 
 
 
 
 int time = 30;
-int Canister = 7;
+int Canister = 8;
 int balls = 5;
-int State[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
-int DistanceCanister[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
-int BallDispensed[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+int State[10] = {1,1,1,0,0,1,1,0,-1,-1};
+int DistanceCanister[10] = {20,30,40,59,123,212,332,400,-1,-1};
+int BallDispensed[10] = {1,1,1,0,0,1,1,0,-1,-1};
 
 void main(void) {
 
@@ -5232,9 +5233,31 @@ void main(void) {
 
 
 
-    printf("It's ya boy Ali!");
-    _delay((unsigned long)((2000)*(10000000/4000.0)));
+
+    { lcdInst( (unsigned char)(8 | (1 << 2) | (0 << 1) | 0) );};
     { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+    printf("A to start");
+    { lcdInst(0x80 | LCD_LINE3_ADDR);};
+    printf("A for Ali ;)");
+    while (!start) {continue; }
+
+
+    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+    printf("It's ya boy Ali!");
+    _delay((unsigned long)((4000)*(10000000/4000.0)));
+    { lcdInst(0x80 | LCD_LINE3_ADDR);};
+    printf("Ali's getting hot ");
+    _delay((unsigned long)((4000)*(10000000/4000.0)));
+
+    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+    printf("Hi Cull !");
+    _delay((unsigned long)((4000)*(10000000/4000.0)));
+    { lcdInst(0x80 | LCD_LINE3_ADDR);};
+    printf("Almost done");
+    _delay((unsigned long)((4000)*(10000000/4000.0)));
+
+
+
 
 
 
@@ -5243,7 +5266,6 @@ void main(void) {
 
         if (state == 0 & clear == 1) {
         { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
-        { lcdInst( (unsigned char)(8 | (1 << 2) | (0 << 1) | 0) );};
         printf("Operation Time");
         { lcdInst(0x80 | LCD_LINE3_ADDR);};
         printf("%d seconds", time);
@@ -5338,7 +5360,7 @@ void main(void) {
                     miniClear = 0;
                 }
 
-                if (miniTick == 2000) {
+                if (miniTick == 3000) {
                     miniClear = 1;
                     miniState++;
                     miniState = miniState % 3;
@@ -5381,6 +5403,12 @@ void __attribute__((picinterrupt(("")))) interruptHandler(void){
         INT1IF = 0;
 
         unsigned char keypress = (PORTB & 0xF0) >> 4;
+
+        if (keys[keypress] == 'A') {
+
+            start = 1;
+            return;
+        }
 
         if (keys[keypress] == '*') {
 

@@ -5185,6 +5185,33 @@ void lcd_shift_display(unsigned char numChars, lcd_direction_e direction);
 # 119 "./lcd.h"
 void putch(char data);
 # 20 "main.c" 2
+# 1 "./I2C.h" 1
+# 38 "./I2C.h"
+void I2C_Master_Init(const unsigned long clockFreq);
+
+
+
+
+
+void I2C_Master_Start(void);
+
+
+
+
+
+void I2C_Master_RepeatedStart(void);
+
+
+
+
+
+void I2C_Master_Stop(void);
+
+
+void I2C_Master_Write(unsigned byteToWrite);
+# 68 "./I2C.h"
+unsigned char I2C_Master_Read(unsigned char ackBit);
+# 21 "main.c" 2
 
 const char keys[] = "123A456B789C*0#D";
 
@@ -5194,7 +5221,7 @@ volatile _Bool start = 0;
 
 const char happynewyear[7] = {
     0x40,
-    0x49,
+    0x57,
     0x13,
     0x03,
     0x06,
@@ -5252,6 +5279,11 @@ void main(void) {
     printf("to start");
 
 
+
+
+
+
+
     while (!start) {
         I2C_Master_Start();
         I2C_Master_Write(0b11010000);
@@ -5262,9 +5294,9 @@ void main(void) {
         I2C_Master_Start();
         I2C_Master_Write(0b11010001);
         for(unsigned char i = 0; i < 6; i++){
-            time[i] = I2C_Master_Read(ACK);
+            time[i] = I2C_Master_Read(0);
         }
-        time[6] = I2C_Master_Read(NACK);
+        time[6] = I2C_Master_Read(1);
         I2C_Master_Stop();
 
 

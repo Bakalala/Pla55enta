@@ -8,12 +8,16 @@
 LCD_SHIFT_LEFT 0
 LCD_SHIFT_RIGHT 1
 ]
+"7 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
 "1 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/abs.c
 [v _abs abs `(i  1 e 2 0 ]
 "9 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/aodiv.c
 [v ___aodiv __aodiv `(o  1 e 8 0 ]
 "9 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/aomod.c
 [v ___aomod __aomod `(o  1 e 8 0 ]
+"4 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
 "7 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 "72 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
@@ -22,6 +26,8 @@ LCD_SHIFT_RIGHT 1
 [v _ctoa ctoa `(i  1 s 2 ctoa ]
 "274
 [v _dtoa dtoa `(i  1 s 2 dtoa ]
+"623
+[v _xtoa xtoa `(i  1 s 2 xtoa ]
 "670
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 "1368
@@ -38,6 +44,16 @@ LCD_SHIFT_RIGHT 1
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
 "19 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isalpha.c
+[v _isalpha isalpha `(i  1 e 2 0 ]
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/islower.c
+[v _islower islower `(i  1 e 2 0 ]
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isupper.c
+[v _isupper isupper `(i  1 e 2 0 ]
 "8 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 "8 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputs.c
@@ -54,10 +70,26 @@ LCD_SHIFT_RIGHT 1
 [v ___flmul __flmul `(d  1 e 4 0 ]
 "12 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
+"4 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/toupper.c
+[v _toupper toupper `(i  1 e 2 0 ]
+"15 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "15 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"21 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/I2C.c
+[v _I2C_Master_Wait I2C_Master_Wait `T(v  1 s 1 I2C_Master_Wait ]
+"32
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+"55
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+"65
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+"70
+[v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
+"77
+[v _I2C_Master_Read I2C_Master_Read `(uc  1 e 1 0 ]
 "28 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
 [v _pulse_e pulse_e `T(v  1 s 1 pulse_e ]
 "44
@@ -70,9 +102,9 @@ LCD_SHIFT_RIGHT 1
 [v _initLCD initLCD `(v  1 e 1 0 ]
 "102
 [v _putch putch `(v  1 e 1 0 ]
-"37 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+"48 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 [v _main main `(v  1 e 1 0 ]
-"243
+"301
 [v _interruptHandler interruptHandler `IIH(v  1 e 1 0 ]
 "189 /Applications/microchip/xc8/v2.05/pic/include/pic18f4620.h
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
@@ -99,10 +131,67 @@ LCD_SHIFT_RIGHT 1
 ]
 [u S91 . 1 `S73 1 . 1 0 `S82 1 . 1 0 ]
 [v _LATDbits LATDbits `VES91  1 e 1 @3980 ]
+[s S336 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"1856
+[s S345 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S354 . 1 `S336 1 . 1 0 `S345 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES354  1 e 1 @3988 ]
 "2046
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "4444
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"4669
+[v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
+[s S378 . 1 `uc 1 SEN 1 0 :1:0 
+`uc 1 RSEN 1 0 :1:1 
+`uc 1 PEN 1 0 :1:2 
+`uc 1 RCEN 1 0 :1:3 
+`uc 1 ACKEN 1 0 :1:4 
+`uc 1 ACKDT 1 0 :1:5 
+`uc 1 ACKSTAT 1 0 :1:6 
+`uc 1 GCEN 1 0 :1:7 
+]
+"4686
+[u S387 . 1 `S378 1 . 1 0 ]
+[v _SSPCON2bits SSPCON2bits `VES387  1 e 1 @4037 ]
+"4731
+[v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
+[s S310 . 1 `uc 1 SSPM 1 0 :4:0 
+`uc 1 CKP 1 0 :1:4 
+`uc 1 SSPEN 1 0 :1:5 
+`uc 1 SSPOV 1 0 :1:6 
+`uc 1 WCOL 1 0 :1:7 
+]
+"4751
+[s S316 . 1 `uc 1 SSPM0 1 0 :1:0 
+`uc 1 SSPM1 1 0 :1:1 
+`uc 1 SSPM2 1 0 :1:2 
+`uc 1 SSPM3 1 0 :1:3 
+]
+[u S321 . 1 `S310 1 . 1 0 `S316 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES321  1 e 1 @4038 ]
+"4801
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+"5022
+[v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
+"5029
+[v _SSPBUF SSPBUF `VEuc  1 e 1 @4041 ]
 [s S24 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
@@ -140,79 +229,130 @@ LCD_SHIFT_RIGHT 1
 [v _dbuf dbuf `[32]uc  1 s 32 dbuf ]
 "69
 [v _nout nout `i  1 s 2 nout ]
-"21 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+"22 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 [v _keys keys `C[17]uc  1 e 17 0 ]
-"23
-[v _key_was_pressed key_was_pressed `VEa  1 e 1 0 ]
 "24
-[v _exit_key exit_key `VEa  1 e 1 0 ]
+[v _key_was_pressed key_was_pressed `VEa  1 e 1 0 ]
 "25
+[v _exit_key exit_key `VEa  1 e 1 0 ]
+"26
 [v _start start `VEa  1 e 1 0 ]
-"31
+"28
+[v _happynewyear happynewyear `C[7]uc  1 e 7 0 ]
+"42
 [v _Canister Canister `i  1 e 2 0 ]
-"33
+"44
 [v _State State `[10]i  1 e 20 0 ]
-"34
+"45
 [v _DistanceCanister DistanceCanister `[10]i  1 e 20 0 ]
-"35
+"46
 [v _BallDispensed BallDispensed `[10]i  1 e 20 0 ]
-"37
+"48
 [v _main main `(v  1 e 1 0 ]
 {
-"161
-[v main@miniState miniState `i  1 a 2 15 ]
-"162
-[v main@miniClear miniClear `i  1 a 2 12 ]
-"164
-[v main@number_pressed number_pressed `i  1 a 2 10 ]
-"160
-[v main@miniTick miniTick `i  1 a 2 8 ]
-"159
-[v main@keypress keypress `uc  1 a 1 14 ]
-"57
-[v main@state state `i  1 a 2 19 ]
-"59
-[v main@clear clear `i  1 a 2 17 ]
-"58
-[v main@tick tick `i  1 a 2 6 ]
-"239
+"205
+[v main@miniState miniState `i  1 a 2 17 ]
+"206
+[v main@miniClear miniClear `i  1 a 2 14 ]
+"208
+[v main@number_pressed number_pressed `i  1 a 2 11 ]
+"204
+[v main@miniTick miniTick `i  1 a 2 9 ]
+"203
+[v main@keypress keypress `uc  1 a 1 16 ]
+"102
+[v main@i i `uc  1 a 1 13 ]
+"70
+[v main@time time `[7]uc  1 a 7 0 ]
+"74
+[v main@state state `i  1 a 2 21 ]
+"76
+[v main@clear clear `i  1 a 2 19 ]
+"75
+[v main@tick tick `i  1 a 2 7 ]
+"283
 } 0
 "5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/printf.c
 [v _printf printf `(i  1 e 2 0 ]
 {
 "8
-[v printf@ap ap `[1]*.39v  1 a 2 2 ]
+[v printf@ap ap `[1]*.39v  1 a 2 95 ]
 "5
-[v printf@fmt fmt `*.25Cuc  1 p 2 103 ]
+[v printf@fmt fmt `*.25Cuc  1 p 2 27 ]
 "13
 } 0
 "1368 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
 [v _vfprintf vfprintf `(i  1 e 2 0 ]
 {
 "1371
-[v vfprintf@cfmt cfmt `*.25uc  1 a 2 101 ]
-[s S279 _IO_FILE 0 ]
+[v vfprintf@cfmt cfmt `*.25uc  1 a 2 91 ]
+[s S434 _IO_FILE 0 ]
 "1368
-[v vfprintf@fp fp `*.2S279  1 p 2 95 ]
-[v vfprintf@fmt fmt `*.25Cuc  1 p 2 97 ]
-[v vfprintf@ap ap `*.39*.39v  1 p 2 99 ]
+[v vfprintf@fp fp `*.2S434  1 p 2 21 ]
+[v vfprintf@fmt fmt `*.25Cuc  1 p 2 23 ]
+[v vfprintf@ap ap `*.39*.39v  1 p 2 25 ]
 "1382
 } 0
 "670
 [v _vfpfcnvrt vfpfcnvrt `(i  1 s 2 vfpfcnvrt ]
 {
+"675
+[v vfpfcnvrt@llu llu `uo  1 a 8 8 ]
 "674
-[v vfpfcnvrt@ll ll `o  1 a 8 86 ]
+[v vfpfcnvrt@ll ll `o  1 a 8 0 ]
+"673
+[v vfpfcnvrt@done done `i  1 a 2 16 ]
 "672
-[v vfpfcnvrt@c c `uc  1 a 1 94 ]
-[s S279 _IO_FILE 0 ]
+[v vfpfcnvrt@c c `uc  1 a 1 20 ]
+[s S434 _IO_FILE 0 ]
 "670
-[v vfpfcnvrt@fp fp `*.2S279  1 p 2 78 ]
-[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 80 ]
-[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 82 ]
+[v vfpfcnvrt@fp fp `*.2S434  1 p 2 81 ]
+[v vfpfcnvrt@fmt fmt `*.39*.25uc  1 p 2 83 ]
+[v vfpfcnvrt@ap ap `*.39*.39v  1 p 2 85 ]
 "1365
 } 0
-"274
+"623
+[v _xtoa xtoa `(i  1 s 2 xtoa ]
+{
+"626
+[v xtoa@n n `uo  1 a 8 69 ]
+"625
+[v xtoa@c c `i  1 a 2 79 ]
+[v xtoa@i i `i  1 a 2 77 ]
+[v xtoa@w w `i  1 a 2 67 ]
+[v xtoa@p p `i  1 a 2 65 ]
+[s S434 _IO_FILE 0 ]
+"623
+[v xtoa@fp fp `*.2S434  1 p 2 42 ]
+[v xtoa@d d `uo  1 p 8 44 ]
+[v xtoa@x x `uc  1 p 1 52 ]
+"665
+} 0
+"4 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/toupper.c
+[v _toupper toupper `(i  1 e 2 0 ]
+{
+[v toupper@c c `i  1 p 2 17 ]
+"8
+} 0
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/islower.c
+[v _islower islower `(i  1 e 2 0 ]
+{
+[v islower@c c `i  1 p 2 11 ]
+"8
+} 0
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isupper.c
+[v _isupper isupper `(i  1 e 2 0 ]
+{
+[v isupper@c c `i  1 p 2 11 ]
+"8
+} 0
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isalpha.c
+[v _isalpha isalpha `(i  1 e 2 0 ]
+{
+[v isalpha@c c `i  1 p 2 11 ]
+"8
+} 0
+"274 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/doprnt.c
 [v _dtoa dtoa `(i  1 s 2 dtoa ]
 {
 "277
@@ -222,9 +362,9 @@ LCD_SHIFT_RIGHT 1
 [v dtoa@s s `i  1 a 2 66 ]
 [v dtoa@w w `i  1 a 2 64 ]
 [v dtoa@p p `i  1 a 2 62 ]
-[s S279 _IO_FILE 0 ]
+[s S434 _IO_FILE 0 ]
 "274
-[v dtoa@fp fp `*.2S279  1 p 2 42 ]
+[v dtoa@fp fp `*.2S434  1 p 2 42 ]
 [v dtoa@d d `o  1 p 8 44 ]
 "315
 } 0
@@ -263,9 +403,9 @@ LCD_SHIFT_RIGHT 1
 {
 "261
 [v ctoa@w w `i  1 a 2 45 ]
-[s S279 _IO_FILE 0 ]
+[s S434 _IO_FILE 0 ]
 "259
-[v ctoa@fp fp `*.2S279  1 p 2 42 ]
+[v ctoa@fp fp `*.2S434  1 p 2 42 ]
 [v ctoa@c c `uc  1 p 1 44 ]
 "270
 } 0
@@ -275,9 +415,9 @@ LCD_SHIFT_RIGHT 1
 "74
 [v pad@w w `i  1 a 2 40 ]
 [v pad@i i `i  1 a 2 38 ]
-[s S279 _IO_FILE 0 ]
+[s S434 _IO_FILE 0 ]
 "72
-[v pad@fp fp `*.2S279  1 p 2 31 ]
+[v pad@fp fp `*.2S434  1 p 2 31 ]
 [v pad@buf buf `*.39uc  1 p 2 33 ]
 [v pad@p p `i  1 p 2 35 ]
 "95
@@ -300,16 +440,16 @@ LCD_SHIFT_RIGHT 1
 [v fputs@c c `uc  1 a 1 28 ]
 "8
 [v fputs@s s `*.39Cuc  1 p 2 24 ]
-[s S793 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputs@fp fp `*.2S793  1 p 2 26 ]
+[s S1036 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputs@fp fp `*.2S1036  1 p 2 26 ]
 "19
 } 0
 "8 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/nf_fputc.c
 [v _fputc fputc `(i  1 e 2 0 ]
 {
 [v fputc@c c `i  1 p 2 15 ]
-[s S793 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
-[v fputc@fp fp `*.2S793  1 p 2 17 ]
+[s S1036 _IO_FILE 6 `*.2uc 1 buffer 2 0 `i 1 count 2 2 `i 1 limit 2 4 ]
+[v fputc@fp fp `*.2S1036  1 p 2 17 ]
 "21
 } 0
 "102 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
@@ -320,7 +460,39 @@ LCD_SHIFT_RIGHT 1
 [v putch@data data `uc  1 a 1 14 ]
 "105
 } 0
-"69
+"4 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/atoi.c
+[v _atoi atoi `(i  1 e 2 0 ]
+{
+"6
+[v atoi@n n `i  1 a 2 31 ]
+[v atoi@neg neg `i  1 a 2 24 ]
+"4
+[v atoi@s s `*.25Cuc  1 p 2 18 ]
+"16
+} 0
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isspace.c
+[v _isspace isspace `(i  1 e 2 0 ]
+{
+[v isspace@c c `i  1 p 2 11 ]
+"8
+} 0
+"5 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/isdigit.c
+[v _isdigit isdigit `(i  1 e 2 0 ]
+{
+[v isdigit@c c `i  1 p 2 11 ]
+"8
+} 0
+"15 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 15 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 11 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 13 ]
+"53
+} 0
+"69 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/lcd.c
 [v _initLCD initLCD `(v  1 e 1 0 ]
 {
 "88
@@ -369,12 +541,62 @@ LCD_SHIFT_RIGHT 1
 [v ___awmod@divisor divisor `i  1 p 2 13 ]
 "34
 } 0
-"243 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
+"70 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/I2C.c
+[v _I2C_Master_Write I2C_Master_Write `(v  1 e 1 0 ]
+{
+[v I2C_Master_Write@byteToWrite byteToWrite `ui  1 p 2 12 ]
+"75
+} 0
+"65
+[v _I2C_Master_Stop I2C_Master_Stop `(v  1 e 1 0 ]
+{
+"68
+} 0
+"55
+[v _I2C_Master_Start I2C_Master_Start `(v  1 e 1 0 ]
+{
+"58
+} 0
+"77
+[v _I2C_Master_Read I2C_Master_Read `(uc  1 e 1 0 ]
+{
+[v I2C_Master_Read@ackBit ackBit `uc  1 a 1 wreg ]
+"84
+[v I2C_Master_Read@receivedByte receivedByte `uc  1 a 1 13 ]
+"77
+[v I2C_Master_Read@ackBit ackBit `uc  1 a 1 wreg ]
+[v I2C_Master_Read@ackBit ackBit `uc  1 a 1 12 ]
+"91
+} 0
+"21
+[v _I2C_Master_Wait I2C_Master_Wait `T(v  1 s 1 I2C_Master_Wait ]
+{
+"29
+} 0
+"32
+[v _I2C_Master_Init I2C_Master_Init `(v  1 e 1 0 ]
+{
+[v I2C_Master_Init@clockFreq clockFreq `Cul  1 p 4 24 ]
+"53
+} 0
+"7 /Applications/microchip/xc8/v2.05/pic/sources/c99/common/__lldiv.c
+[v ___lldiv __lldiv `(ul  1 e 4 0 ]
+{
+"10
+[v ___lldiv@quotient quotient `ul  1 a 4 19 ]
+"11
+[v ___lldiv@counter counter `uc  1 a 1 23 ]
+"7
+[v ___lldiv@dividend dividend `ul  1 p 4 11 ]
+[v ___lldiv@divisor divisor `ul  1 p 4 15 ]
+"30
+} 0
+"301 /Users/aliseifeldin/Desktop/Pla55enta/Robot.X/main.c
 [v _interruptHandler interruptHandler `IIH(v  1 e 1 0 ]
 {
-"265
+"323
 [v interruptHandler@i i `i  1 a 2 8 ]
-"251
+"309
 [v interruptHandler@keypress keypress `uc  1 a 1 10 ]
-"276
+"334
 } 0

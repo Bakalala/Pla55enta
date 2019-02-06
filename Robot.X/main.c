@@ -17,6 +17,7 @@
 #include <math.h>
 #include "configBits.h"
 #include "lcd.h"
+#include "I2C.h"
 
 const char keys[] = "123A456B789C*0#D";
 
@@ -26,7 +27,7 @@ volatile bool start = false;
 
 const char happynewyear[7] = {
     0x40, // 45 Seconds 
-    0x49, // 59 Minutes
+    0x57, // 59 Minutes
     0x13, // 24 hour mode, set to 23:00
     0x03, // Wedneday
     0x06, // 6th
@@ -79,11 +80,16 @@ void main(void) {
     
     lcd_display_control(true, false, false);
     lcd_clear();
-    printf("Press A");
+    printf("Press A"); // Add a welcome
     lcd_set_ddram_addr(LCD_LINE2_ADDR);
     printf("to start");
     //lcd_set_ddram_addr(LCD_LINE4_ADDR);
     //printf("A for Ali ;)");
+    
+    // Set the time in the RTC. To see the RTC keep time, comment this line out
+    // after programming the PIC directly before with this line included
+    //rtc_set_time();
+
     while (!start) { // Reset RTC memory pointer
         I2C_Master_Start(); // Start condition
         I2C_Master_Write(0b11010000); // 7 bit RTC address + Write

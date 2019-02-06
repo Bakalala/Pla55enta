@@ -24,6 +24,16 @@ volatile bool key_was_pressed = false;
 volatile bool exit_key = false;
 volatile bool start = false;
 
+const char happynewyear[7] = {
+    0x40, // 45 Seconds 
+    0x49, // 59 Minutes
+    0x13, // 24 hour mode, set to 23:00
+    0x03, // Wedneday
+    0x06, // 6th
+    0x02, // Febuary
+    0x19  // 2019
+};
+
 
 // Universal Data
 
@@ -53,6 +63,12 @@ void main(void) {
     // Enable interrupts
     ei();
     
+    // Initialize I2C Master with 100 kHz clock
+    I2C_Master_Init(100000);
+    
+    unsigned char time[7]; // Create a byte array to hold time read from RTC
+
+    
     
     int state = 0; // Status of GUI screen
     int tick = 0;
@@ -66,9 +82,31 @@ void main(void) {
     printf("Press A");
     lcd_set_ddram_addr(LCD_LINE2_ADDR);
     printf("to start");
-    lcd_set_ddram_addr(LCD_LINE4_ADDR);
-    printf("A for Ali ;)");
-    while (!start) {continue; }
+    //lcd_set_ddram_addr(LCD_LINE4_ADDR);
+    //printf("A for Ali ;)");
+    while (!start) { // Reset RTC memory pointer
+        I2C_Master_Start(); // Start condition
+        I2C_Master_Write(0b11010000); // 7 bit RTC address + Write
+        I2C_Master_Write(0x00); // Set memory pointer to seconds
+        I2C_Master_Stop(); // Stop condition
+
+        // Read current time
+        I2C_Master_Start(); // Start condition
+        I2C_Master_Write(0b11010001); // 7 bit RTC address + Read
+        for(unsigned char i = 0; i < 6; i++){
+            time[i] = I2C_Master_Read(ACK); // Read with ACK to continue reading
+        }
+        time[6] = I2C_Master_Read(NACK); // Final Read with NACK
+        I2C_Master_Stop(); // Stop condition
+        
+        // Print received data on LCD
+        lcd_set_ddram_addr(LCD_LINE3_ADDR);
+        printf("%02x/%02x/%02x", time[6],time[5],time[4]); // Print date in YY/MM/DD
+        lcd_set_ddram_addr(LCD_LINE4_ADDR);
+        printf("%02x:%02x:%02x", time[2],time[1],time[0]); // HH:MM:SS
+        __delay_ms(1000); 
+    
+    }
     
     // Entry to Gui
     lcd_clear();
@@ -236,6 +274,20 @@ void main(void) {
 
         
     }
+}
+
+
+void rtc_set_time(void){
+    I2C_Master_Start(); // Start condition
+    I2C_Master_Write(0b11010000); //7 bit RTC address + Write
+    I2C_Master_Write(0x00); // Set memory pointer to seconds
+    
+    // Write array
+    for(char i=0; i < 7; i++){
+        I2C_Master_Write(happynewyear[i]);
+    }
+    
+    I2C_Master_Stop(); //Stop condition
 }
 
 

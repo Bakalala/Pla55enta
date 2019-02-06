@@ -4583,7 +4583,7 @@ char *tempnam(const char *, const char *);
 
 #pragma config EBTRB = OFF
 # 20 "./lcd.h" 2
-# 68 "./lcd.h"
+# 69 "./lcd.h"
 extern const unsigned char LCD_SIZE_HORZ;
 extern const unsigned char LCD_SIZE_VERT;
 
@@ -4624,7 +4624,7 @@ void lcd_shift_cursor(unsigned char numChars, lcd_direction_e direction);
 
 
 void lcd_shift_display(unsigned char numChars, lcd_direction_e direction);
-# 118 "./lcd.h"
+# 119 "./lcd.h"
 void putch(char data);
 # 11 "lcd.c" 2
 

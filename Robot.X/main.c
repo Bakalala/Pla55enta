@@ -1,15 +1,9 @@
-/**
+/*
  * @file
- * @author Tyler Gamvrelis
+ * @author Ali Seifeldin
  * 
- * Created on August 12, 2017, 5:40 PM
- * 
- * @defgroup CharacterLCD_2
- * @brief Demonstrates more character LCD capabilities such as display shifting
- *        and moving the cursor to a specific DDRAM address
- * 
- * Precondition:
- * @pre Character LCD is in a PIC socket
+ * Created on Jan 10, 2019, 5:40 PM
+
  */
 
 #include <stdio.h>
@@ -19,32 +13,25 @@
 #include "lcd.h"
 #include "I2C.h"
 
+
 const char keys[] = "123A456B789C*0#D";
 
 volatile bool key_was_pressed = false;
 volatile bool exit_key = false;
 volatile bool start = false;
-
-const char happynewyear[7] = {
-    0x40, // 45 Seconds 
-    0x57, // 59 Minutes
-    0x13, // 24 hour mode, set to 23:00
-    0x03, // Wedneday
-    0x06, // 6th
-    0x02, // Febuary
-    0x19  // 2019
-};
+unsigned char keypress;
 
 
 // Universal Data
 
-int time = 30;
-int Canister = 8;
-int balls = 5;
-int State[10] = {1,1,1,0,0,1,1,0,-1,-1}; // Final Error -1 no info, 0 empty, 1 ball
-int DistanceCanister[10] = {20,30,40,59,123,212,332,400,-1,-1}; // -1 No info, int distance in cm
-int BallDispensed[10] = {1,1,1,0,0,1,1,0,-1,-1}; // -1 No info, 0 No ball dispensed, 1 Ball dispensed
+int time = 0;
+int Canister = 0;
+int balls = 0;
+int State[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // Final Error -1 no info, 0 empty, 1 ball
+int DistanceCanister[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // -1 No info, int distance in cm
+int BallDispensed[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1}; // -1 No info, 0 No ball dispensed, 1 Ball dispensed
     
+
 void main(void) {
     // RD2 is the character LCD RS
     // RD3 is the character LCD enable (E)
@@ -64,73 +51,221 @@ void main(void) {
     // Enable interrupts
     ei();
     
-    // Initialize I2C Master with 100 kHz clock
-    I2C_Master_Init(100000);
-    
-    unsigned char time[7]; // Create a byte array to hold time read from RTC
+    // Setup pins 
 
+    TRISCbits.RC0 = 0; // KPD
+    LATCbits.LATC0 = 0; // Enable Keypad   
+    
+    TRISCbits.RC2 = 1; // echo
+    TRISCbits.RC1 = 0; // trigger
+
+    TRISBbits.TRISB2 = 0; // Left motor
+    TRISBbits.TRISB3 = 0; // Right motor
+    LATBbits.LATB2 = 0;
+    LATBbits.LATB3 = 0;
+
+    TRISBbits.RB0 = 0; // Microswitch 
+    LATBbits.LATB0 = 0;
+
+    lcd_display_control(true, false, false);
+    printf("Press A");
+    lcd_set_ddram_addr(LCD_LINE2_ADDR);
+    printf("to start");
+    lcd_set_ddram_addr(LCD_LINE4_ADDR);
+    printf("A for Ali ;)");
+    
+    while (!start) {continue; }
+    
+    
+    LATCbits.LATC0 = 1; // Disable Keypad
+    
+    TRISBbits.RB1 = 0; // motor 
+    LATBbits.LATB1 = 0;
+
+    TRISAbits.RA5 = 0; // Light
+    LATAbits.LATA5 = 0;
+
+    lcd_clear();
+    
+    
+    int a; // distance from ultrasonic sensor
+    int tick = 0; // wheel spin time
+    int time = 0; // if ultrasonic takes too long
+
+
+    while(1){
+        
+        while (tick < 100) {
+            LATBbits.LATB2 = 1 ; 
+            LATBbits.LATB3 = 1 ; 
+
+            __delay_us(1235);
+            LATBbits.LATB2 = 0 ;
+            __delay_us(1400);
+
+            LATBbits.LATB3 = 0 ; 
+
+            __delay_us(1700);
+
+        tick++;
+        }
+        
+        tick = 0;
+        
+        lcd_clear();
+        printf("Distance %d" , a);
+
+        
+        TMR1H = 0;                //Sets the Initial Value of Timer
+        TMR1L = 0;                //Sets the Initial Value of Timer
+
+        LATCbits.LATC1 = 1;                  //TRIGGER HIGH
+        __delay_us(10);           //10uS Delay 
+        LATCbits.LATC1 = 0;                  //TRIGGER LOW
+
+
+        
+        while(!PORTCbits.RC2);              //Waiting for Echo
+        TMR1ON = 1;  
+        //Timer Starts
+        time = 0;
+        while(PORTCbits.RC2 == 1 && time < 1000)               //Waiting for Echo goes LOW
+        {
+            time ++;            
+        }
+            
+        TMR1ON = 0;               //Timer Stops
+        
+        a = (TMR1L | (TMR1H<<8)); //Reads Timer Value
+        a = a/155;              //Converts Time to Distance 155 came through calibration
+    
+        if (a < 10 && a > 0) {  // a < 10 && a > 0
+            
+            LATAbits.LATA5 = 1; // light
+
+            lcd_set_ddram_addr(LCD_LINE4_ADDR);
+  
+            while (!PORTBbits.RB0){          // not switch                         
+            
+                LATBbits.LATB1 = 1;  // motor    
+                __delay_ms(30);
+                LATBbits.LATB1 = 0;
+                 __delay_ms(50);
+
+                
+            }
+            LATAbits.LATA5 = 0; // light
+            LATBbits.LATB1 = 0;  //motor
+
+
+        }
+        
+    }
+    
+    
+    
+    // Actual running code
+    // 1 means yes, 0 means no
+    int running = 1;
+    int end = 0;
+    int forward = 1;
+    int Distance = 0;
+    int Sensor1Now;
+    int Sensor1Before;
+    int Sensor2;
+    int tempCan;
+    while(running){
+        
+        // Make servo go forward
+        
+        //DetectState
+        if (Distance - DistanceCanister[Canister] > 20 && forward){
+        
+            if (abs(Sensor1Now - Sensor1Before) > 10 && Sensor1Now < 30){
+                State[Canister] = 1;
+                DistanceCanister[Canister] = Distance;
+                BallDispensed[Canister] = 0;
+                Canister +=1;
+            }
+            else if (abs(Sensor1Now - Sensor1Before) > 5 && Sensor1Now < 30 & abs(Distance-DistanceCanister[Canister]) > 30 ){
+                State[Canister] = 1;
+                DistanceCanister[Canister] = Distance;
+                BallDispensed[Canister] = 1;
+                Canister +=1;
+            }
+            
+            else if (abs(Sensor1Now - Sensor1Before) > 5 && Sensor1Now < 30 ){
+                State[Canister] = 0;
+                DistanceCanister[Canister] = Distance;
+                BallDispensed[Canister] = 0;
+                Canister +=1;
+                
+            }
+            else if (abs(Sensor1Now - Sensor1Before) < 1 && Sensor1Now < 30){
+                State[Canister] = 0;
+                DistanceCanister[Canister] = Distance;
+                BallDispensed[Canister] = 0;
+                Canister +=1;
+                
+            }
+            tempCan = Canister;
+        }
+        
+        if (!forward){
+            if (abs(Sensor1Now - Sensor1Before) > 10 && Sensor1Now < 30 && !State[tempCan]){
+                State[tempCan] = 1;
+                BallDispensed[tempCan] = 0;
+                tempCan -=1;
+            }
+            else if (abs(Sensor1Now - Sensor1Before) > 5 && Sensor1Now < 30 && abs(Distance-DistanceCanister[tempCan]) > 30 ){
+                State[tempCan] = 1;
+                BallDispensed[tempCan] = 1;
+                tempCan -=1;
+            }
+            
+            else if (abs(Sensor1Now - Sensor1Before) > 5 && Sensor1Now < 30 ){
+                State[tempCan] = 0;
+                BallDispensed[tempCan] = 0;
+                tempCan -=1;
+            }
+            
+            else if (abs(Sensor1Now - Sensor1Before) < 1 && Sensor1Now < 30  ){
+                State[tempCan] = 0;
+                BallDispensed[tempCan] = 0;
+                tempCan -=1;
+                
+            }
+            
+            else {tempCan -= 1;}
+        }
+        
+
+        
+        // Calculate distance moved using the Gyro, increment distance 
+        if (forward){
+            Distance += 1 ;// Use integral of time and gyroscope acceleration to find distance once gyroscope works
+        }
+        else{
+            Distance -= 1 ;// Use integral of time and gyroscope acceleration to find distance once gyroscope works
+        }
+        if (Distance > 420) {
+            // make the robot turn right 
+            // move forward 30 cm
+            // turn right again
+            // all while checking the angular velocity and making sure the are 90 degree angles. 
+            
+        }
+                
+        if (Distance < 0 && !forward){
+            running = 0;
+        }
+    }
+    
     
     
     int state = 0; // Status of GUI screen
-    int tick = 0;
+    tick = 0;
     int clear = 1; // 1 to clear, 0 to not
-    
-    
-    // Wait to start 
-    
-    lcd_display_control(true, false, false);
-    lcd_clear();
-    printf("Press A"); // Add a welcome
-    lcd_set_ddram_addr(LCD_LINE2_ADDR);
-    printf("to start");
-    //lcd_set_ddram_addr(LCD_LINE4_ADDR);
-    //printf("A for Ali ;)");
-    
-    // Set the time in the RTC. To see the RTC keep time, comment this line out
-    // after programming the PIC directly before with this line included
-    //rtc_set_time();
-
-    while (!start) { // Reset RTC memory pointer
-        I2C_Master_Start(); // Start condition
-        I2C_Master_Write(0b11010000); // 7 bit RTC address + Write
-        I2C_Master_Write(0x00); // Set memory pointer to seconds
-        I2C_Master_Stop(); // Stop condition
-
-        // Read current time
-        I2C_Master_Start(); // Start condition
-        I2C_Master_Write(0b11010001); // 7 bit RTC address + Read
-        for(unsigned char i = 0; i < 6; i++){
-            time[i] = I2C_Master_Read(ACK); // Read with ACK to continue reading
-        }
-        time[6] = I2C_Master_Read(NACK); // Final Read with NACK
-        I2C_Master_Stop(); // Stop condition
-        
-        // Print received data on LCD
-        lcd_set_ddram_addr(LCD_LINE3_ADDR);
-        printf("%02x/%02x/%02x", time[6],time[5],time[4]); // Print date in YY/MM/DD
-        lcd_set_ddram_addr(LCD_LINE4_ADDR);
-        printf("%02x:%02x:%02x", time[2],time[1],time[0]); // HH:MM:SS
-        __delay_ms(1000); 
-    
-    }
-    
-    // Entry to Gui
-    lcd_clear();
-    printf("It's ya boy Ali!");
-    __delay_ms(4000);   
-    lcd_set_ddram_addr(LCD_LINE3_ADDR);
-    printf("He gettin hot ");
-    __delay_ms(4000);
-
-    lcd_clear();
-    printf("Hi Cull !");
-    __delay_ms(4000);   
-    lcd_set_ddram_addr(LCD_LINE3_ADDR);
-    printf("Almost done");
-    lcd_set_ddram_addr(LCD_LINE4_ADDR);
-    __delay_ms(2000);   
-    printf("AND DONE");
-    __delay_ms(4000);
     
     start = false;
     
@@ -283,34 +418,46 @@ void main(void) {
 }
 
 
-void rtc_set_time(void){
-    I2C_Master_Start(); // Start condition
-    I2C_Master_Write(0b11010000); //7 bit RTC address + Write
-    I2C_Master_Write(0x00); // Set memory pointer to seconds
+
+void EEPROM_WriteByte(unsigned char eepromAddress, unsigned char eepromData) {
     
-    // Write array
-    for(char i=0; i < 7; i++){
-        I2C_Master_Write(happynewyear[i]);
-    }
+unsigned char gie_Status;
+while(EECON1bits.WR){};            // check the WR bit to see if a previous Write operation is in progress
+    EEADR=eepromAddress;  // Write the address to EEADR.
+    EEDATA=eepromData;    // load the 8-bit data value to be written in the EEDATA register.
+    WREN=1;               // Set the WREN bit to enable eeprom operation.
+    gie_Status = GIE;     // Copy the current Interrupt state
+    GIE = 0;              // Disable the interrupts
+    EECON2=0x55;          // Execute the special instruction sequence
+    EECON2=0xaa;          // Refer the datasheet for more info
+    EECON1bits.WR=1;                 // Set the WR bit to trigger the eeprom write operation.
+    GIE = gie_Status;     // Restore the interrupts
+    WREN=0;               // Disable the EepromWrite
     
-    I2C_Master_Stop(); //Stop condition
+} 
+
+unsigned char EEPROM_ReadByte(unsigned char eepromAddress) {
+    
+    while(EECON1bits.RD || EECON1bits.WR);           // check the WR&RD bit to see if a RD/WR is in progress
+    EEADR=eepromAddress;       // Write the address to EEADR.
+    EECON1bits.RD = 1;                    // Set the RD bit to trigger the eeprom read operation.
+    return(EEDATA);            // Return the data read form eeprom.
+    
 }
-
-
 
 void __interrupt() interruptHandler(void){
     // Interrupt on change handler for RB1
+    
     if(INT1IF){
         // Notice how we keep the interrupt processing very short by simply
         // setting a "flag" which the main program loop checks
-
+        keypress = (PORTB & 0xF0) >> 4;
         INT1IF = 0; // Clear interrupt flag bit to signify it's been handled
-
-        unsigned char keypress = (PORTB & 0xF0) >> 4;
         
         if (keys[keypress] == 'A') {
             
             start = true;
+
             return;
         }
 

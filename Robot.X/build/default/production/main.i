@@ -7,7 +7,14 @@
 # 1 "/Applications/microchip/xc8/v2.05/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 15 "main.c"
+
+
+
+
+
+
+
+
 # 1 "/Applications/microchip/xc8/v2.05/pic/include/c99/stdio.h" 1 3
 
 
@@ -162,7 +169,7 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 16 "main.c" 2
+# 10 "main.c" 2
 # 1 "/Applications/microchip/xc8/v2.05/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/xc8/v2.05/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4519,7 +4526,7 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "/Applications/microchip/xc8/v2.05/pic/include/xc.h" 2 3
-# 17 "main.c" 2
+# 11 "main.c" 2
 # 1 "/Applications/microchip/xc8/v2.05/pic/include/c99/math.h" 1 3
 # 10 "/Applications/microchip/xc8/v2.05/pic/include/c99/math.h" 3
 # 1 "/Applications/microchip/xc8/v2.05/pic/include/c99/stdint.h" 1 3
@@ -5080,7 +5087,7 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 18 "main.c" 2
+# 12 "main.c" 2
 # 1 "./configBits.h" 1
 # 14 "./configBits.h"
 #pragma config OSC = HS
@@ -5136,7 +5143,7 @@ double yn(int, double);
 
 
 #pragma config EBTRB = OFF
-# 19 "main.c" 2
+# 13 "main.c" 2
 # 1 "./lcd.h" 1
 # 19 "./lcd.h"
 # 1 "/Applications/microchip/xc8/v2.05/pic/include/c99/stdbool.h" 1 3
@@ -5184,7 +5191,7 @@ void lcd_shift_cursor(unsigned char numChars, lcd_direction_e direction);
 void lcd_shift_display(unsigned char numChars, lcd_direction_e direction);
 # 119 "./lcd.h"
 void putch(char data);
-# 20 "main.c" 2
+# 14 "main.c" 2
 # 1 "./I2C.h" 1
 # 38 "./I2C.h"
 void I2C_Master_Init(const unsigned long clockFreq);
@@ -5211,33 +5218,44 @@ void I2C_Master_Stop(void);
 void I2C_Master_Write(unsigned byteToWrite);
 # 68 "./I2C.h"
 unsigned char I2C_Master_Read(unsigned char ackBit);
-# 21 "main.c" 2
+# 15 "main.c" 2
+
 
 const char keys[] = "123A456B789C*0#D";
 
 volatile _Bool key_was_pressed = 0;
+volatile _Bool B_was_pressed = 0;
 volatile _Bool exit_key = 0;
 volatile _Bool start = 0;
-
-const char happynewyear[7] = {
-    0x40,
-    0x57,
-    0x13,
-    0x03,
-    0x06,
-    0x02,
-    0x19
-};
+unsigned char keypress;
+volatile long int timer = 0;
 
 
 
 
-int time = 30;
-int Canister = 8;
-int balls = 5;
-int State[10] = {1,1,1,0,0,1,1,0,-1,-1};
-int DistanceCanister[10] = {20,30,40,59,123,212,332,400,-1,-1};
-int BallDispensed[10] = {1,1,1,0,0,1,1,0,-1,-1};
+int time = 0;
+int Canister = 0;
+int balls = 0;
+int State[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+int DistanceCanister[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+int BallDispensed[10] = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+
+
+
+void forward(void);
+void backdrive(void);
+void left(void);
+void backleft(void);
+void right(void);
+void backright(void);
+int frontsensor(void);
+int backsensor(void);
+float readADC(char channel);
+void turnright(void);
+void EEPROM_WriteByte(unsigned char eepromAddress, unsigned char eepromData);
+unsigned char EEPROM_ReadByte(unsigned char eepromAddress);
+void EEPROM_save(void);
+void EEPROM_prev(int trial);
 
 void main(void) {
 
@@ -5247,7 +5265,9 @@ void main(void) {
     TRISD = 0x00;
 
 
-    ADCON1 = 0b00001111;
+    ADCON1 = 0b00001101;
+
+    ADCON2bits.ADFM = 1;
 
 
     INT1IE = 1;
@@ -5261,30 +5281,105 @@ void main(void) {
 
     I2C_Master_Init(100000);
 
-    unsigned char time[7];
 
 
 
-    int state = 0;
+    TMR0ON = 1;
+
+    T08BIT = 0;
+
+    T0CS = 0;
+    T0SE = 0;
+
+    PSA = 1;
+
+
+    TMR0L = 0b00000000;
+    TMR0H = 0b00000000;
+
+
+
+
+    TRISBbits.TRISB2 = 0;
+    TRISBbits.TRISB3 = 0;
+    LATBbits.LATB2 = 0;
+    LATBbits.LATB3 = 0;
+
+    TRISCbits.RC7 = 0;
+    LATCbits.LATC7 = 0;
+
+
+    TRISCbits.RC2 = 1;
+    TRISCbits.RC1 = 0;
+
+
+    TRISAbits.RA4 = 1;
+    TRISAbits.RA5 = 0;
+
+    TRISBbits.RB0 = 0;
+    LATBbits.LATB0 = 0;
+
+    TRISCbits.RC6 = 0;
+    LATCbits.LATC6 = 0;
+
+    TRISAbits.RA2 = 1;
+    TRISAbits.RA3 = 1;
+
+
+    float x = 1.5;
+    float circ = 8.8 * 3.14159265358979323846;
+
+    int lefty = 0;
+    int righty = 0;
+    int countl = 0;
+    int countr = 0;
+    int statright = 0;
+    int statleft = 0;
+
+    int front= 0;
+    int back = 0;
+    int prev = 0;
+    int prev2 = 0;
+
+    int compare = 0;
+
+    float Distance = 0;
+
     int tick = 0;
-    int clear = 1;
 
+    int num;
+    int count = 0;
+    int now = 0;
 
+    while (readADC(2) < x && readADC(2) < x){
+        if (readADC(2) < x) {
 
+            LATBbits.LATB2 = 1 ;
+            _delay((unsigned long)((1200)*(10000000/4000000.0)));
+            LATBbits.LATB2 = 0 ;
+            _delay((unsigned long)((600)*(10000000/4000000.0)));
+            _delay((unsigned long)((1000)*(10000000/4000000.0)));
+        }
+        if (readADC(3) < x) {
+
+            LATBbits.LATB3 = 1 ;
+            _delay((unsigned long)((1200)*(10000000/4000000.0)));
+            _delay((unsigned long)((600)*(10000000/4000000.0)));
+            LATBbits.LATB3 = 0 ;
+            _delay((unsigned long)((1000)*(10000000/4000000.0)));
+        }
+    }
 
     { lcdInst( (unsigned char)(8 | (1 << 2) | (0 << 1) | 0) );};
-    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
-    printf("Press A");
-    { lcdInst(0x80 | LCD_LINE2_ADDR);};
-    printf("to start");
+    unsigned char clock[7];
+
+    while(!start){
+
+        { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+        printf("A to start");
+        { lcdInst(0x80 | LCD_LINE2_ADDR);};
 
 
-
-
-
-
-
-    while (!start) {
         I2C_Master_Start();
         I2C_Master_Write(0b11010000);
         I2C_Master_Write(0x00);
@@ -5293,38 +5388,259 @@ void main(void) {
 
         I2C_Master_Start();
         I2C_Master_Write(0b11010001);
-        for(unsigned char i = 0; i < 6; i++){
-            time[i] = I2C_Master_Read(0);
+        for(unsigned char j = 0; j < 6; j++){
+            clock[j] = I2C_Master_Read(0);
         }
-        time[6] = I2C_Master_Read(1);
+        clock[6] = I2C_Master_Read(1);
         I2C_Master_Stop();
 
 
+        { lcdInst(0x80 | LCD_LINE2_ADDR);};
+        printf("%02x/%02x/%02x", clock[6],clock[5],clock[4]);
         { lcdInst(0x80 | LCD_LINE3_ADDR);};
-        printf("%02x/%02x/%02x", time[6],time[5],time[4]);
-        { lcdInst(0x80 | LCD_LINE4_ADDR);};
-        printf("%02x:%02x:%02x", time[2],time[1],time[0]);
+        printf("%02x:%02x:%02x", clock[2],clock[1],clock[0]);
         _delay((unsigned long)((1000)*(10000000/4000.0)));
+    }
+
+    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+    TMR0IE = 1;
+
+    int dispense = 0;
+
+    while(timer*0.0262144 < 100 && Distance < 400 && Canister < 11) {
+
+        _delay((unsigned long)((10)*(10000000/4000.0)));
+        front = frontsensor();
+
+
+
+            if (lefty == righty) {
+                forward();
+            }
+            else if (righty > lefty ){
+                left();
+            }
+            else {
+                right();
+            }
+
+
+            if (readADC(2) > x && statright == 0){
+                statright = 1;
+                righty++;
+                Distance += (circ / 12.0);
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                printf("Dist: %.3f", Distance);
+
+            }
+            else if (readADC(2) < 1 && statright == 1){
+                statright = 0;
+
+            }
+
+            if (readADC(3) > x && statleft == 0){
+                statleft = 1;
+                lefty++;
+                Distance += (circ / 12.0);
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                printf("Dist: %.3f", Distance);
+
+            }
+            else if (readADC(3) < 1 && statleft == 1){
+                statleft = 0;
+
+
+            }
+
+
+            if (prev2 < 17 && prev < 17 && front < 17 && count == 0 ) {
+
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                { lcdInst(0x80 | LCD_LINE3_ADDR);};
+                printf("closed");
+                { lcdInst(0x80 | LCD_LINE4_ADDR);};
+                printf("f:%d,p:%d,p2:%d", front, prev, prev2);
+                LATCbits.LATC6 = 1;
+
+                _delay((unsigned long)((2000)*(10000000/4000.0)));
+                LATCbits.LATC6 = 0;
+
+                State[Canister] = 0;
+                DistanceCanister[Canister] = Distance;
+                BallDispensed[Canister] = 0;
+                Canister ++;
+                compare = Distance + 30;
+
+
+                count++ ;
+
+
+            }
+
+            else if (prev2 < 50 && prev < 50 && front < 50 && count == 0) {
+
+
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                { lcdInst(0x80 | LCD_LINE3_ADDR);};
+                printf("open");
+                { lcdInst(0x80 | LCD_LINE4_ADDR);};
+                printf("f:%d,p:%d,p2:%d", front, prev, prev2);
+                LATCbits.LATC6 = 1;
+
+
+                if (compare < Distance ){
+
+                    dispense = 1;
+
+
+                    State[Canister] = 1;
+                    DistanceCanister[Canister] = Distance;
+                    BallDispensed[Canister] = 1;
+                    Canister ++;
+                    balls++;
+                    compare = Distance + 30;
+
+                }
+
+                else {
+
+                    State[Canister] = 1;
+                    DistanceCanister[Canister] = Distance;
+                    BallDispensed[Canister] = 0;
+                    Canister ++;
+                    _delay((unsigned long)((2000)*(10000000/4000.0)));
+                    LATCbits.LATC6 = 0;
+
+                }
+
+                count++;
+
+
+
+            }
+
+            if (count == 1){
+                if (front< 10) {
+
+                    righty--;
+                }
+                if (front > 30) {
+
+                    lefty--;
+                }
+            }
+
+        if (dispense == 1 && count == 15){
+            dispense = 0;
+            LATCbits.LATC6 = 1;
+
+            while (!PORTBbits.RB0){
+
+                LATCbits.LATC7 = 1;
+                _delay((unsigned long)((10)*(10000000/4000.0)));
+                LATCbits.LATC7 = 0;
+                _delay((unsigned long)((50)*(10000000/4000.0)));
+
+            }
+
+            LATCbits.LATC6 = 0;
+            LATCbits.LATC7 = 0;
+        }
+
+
+
+        { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+        printf("Dist: %.3f", Distance);
+        { lcdInst(0x80 | LCD_LINE2_ADDR);};
+        printf("cnt: %d", count);
+        { lcdInst(0x80 | LCD_LINE3_ADDR);};
+        printf("comp: %d", compare);
+        { lcdInst(0x80 | LCD_LINE4_ADDR);};
+        printf("Ultra: %d", frontsensor());
+
+        prev2 = prev;
+        prev = front;
+
+
+        if (count == 40){count = 0;}
+        else if (count > 0){count++;}
 
     }
 
 
-    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
-    printf("It's ya boy Ali!");
-    _delay((unsigned long)((4000)*(10000000/4000.0)));
-    { lcdInst(0x80 | LCD_LINE3_ADDR);};
-    printf("He gettin hot ");
-    _delay((unsigned long)((4000)*(10000000/4000.0)));
 
-    { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
-    printf("Hi Cull !");
-    _delay((unsigned long)((4000)*(10000000/4000.0)));
-    { lcdInst(0x80 | LCD_LINE3_ADDR);};
-    printf("Almost done");
-    { lcdInst(0x80 | LCD_LINE4_ADDR);};
-    _delay((unsigned long)((2000)*(10000000/4000.0)));
-    printf("AND DONE");
-    _delay((unsigned long)((4000)*(10000000/4000.0)));
+
+
+
+
+    while(Distance > -20) {
+
+
+            if (lefty == righty) {
+                backdrive();
+            }
+            else if (righty > lefty ){
+                backright();
+            }
+            else {
+                backleft();
+            }
+
+
+            if (readADC(2) > x && statright == 0){
+                statright = 1;
+                righty++;
+                Distance -= (circ / 12.0);
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                printf("Dist: %.3f", Distance);
+
+            }
+            else if (readADC(2) < 1 && statright == 1){
+                statright = 0;
+
+            }
+
+            if (readADC(3) > x && statleft == 0){
+                statleft = 1;
+                lefty++;
+                Distance -= (circ / 12.0);
+                { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+                printf("Dist: %.3f", Distance);
+
+            }
+            else if (readADC(3) < 1 && statleft == 1){
+                statleft = 0;
+
+
+            }
+
+
+        { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+        printf("Dist: %.3f", Distance);
+        { lcdInst(0x80 | LCD_LINE2_ADDR);};
+        printf("lefty: %d", lefty);
+        { lcdInst(0x80 | LCD_LINE3_ADDR);};
+        printf("right: %d", righty);
+        { lcdInst(0x80 | LCD_LINE4_ADDR);};
+        printf("Ultra: %d", frontsensor());
+
+
+    }
+
+
+
+    TMR0IE = 0;
+
+    time = timer*0.0262144;
+
+
+    EEPROM_save();
+
+
+
+    int state = 0;
+    tick = 0;
+    int clear = 1;
 
     start = 0;
 
@@ -5342,9 +5658,16 @@ void main(void) {
     printf("starts at 0");
     _delay((unsigned long)((4000)*(10000000/4000.0)));
 
+
+
+
+    info:
+    state = 0;
+    clear = 0;
+    tick = 0;
+    B_was_pressed = 0;
     key_was_pressed = 1;
     exit_key = 1;
-
     while(1){
 
 
@@ -5392,6 +5715,39 @@ void main(void) {
 
         }
 
+        else if (state == 4 & clear == 1) {
+
+            { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+            printf("View previous");
+            { lcdInst(0x80 | LCD_LINE2_ADDR);};
+            printf("trials");
+            { lcdInst(0x80 | LCD_LINE4_ADDR);};
+            printf("Press B ", Canister-1);
+            clear = 0;
+
+        }
+
+
+        if(B_was_pressed) {
+
+            { lcdInst(0x01); _delay((unsigned long)((5)*(10000000/4000.0)));};
+            printf("Pick previous");
+            { lcdInst(0x80 | LCD_LINE2_ADDR);};
+            printf("trials");
+            { lcdInst(0x80 | LCD_LINE3_ADDR);};
+            printf("0 is Current");
+            { lcdInst(0x80 | LCD_LINE4_ADDR);};
+            printf("0 to 4 ");
+
+            while (!key_was_pressed){continue;}
+
+            int number_pressed = (int) (keys[keypress] - '0');
+
+            EEPROM_prev(number_pressed);
+            goto info;
+
+        }
+
         if(key_was_pressed){
 
             unsigned char keypress = (PORTB & 0xF0) >> 4;
@@ -5410,7 +5766,7 @@ void main(void) {
                     { lcdInst(0x80 | LCD_LINE3_ADDR);};
                     printf("Distance %d cm", DistanceCanister[number_pressed] );
                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
-                    printf("* to exit");
+                    printf("# to exit");
                     miniClear = 0;
                 }
 
@@ -5424,7 +5780,7 @@ void main(void) {
                     else
                         printf("Canister Empty");
                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
-                    printf("* to exit");
+                    printf("# to exit");
                     miniClear = 0;
                 }
 
@@ -5438,7 +5794,7 @@ void main(void) {
                     else
                         printf("No Ball Added");
                     { lcdInst(0x80 | LCD_LINE4_ADDR);};
-                    printf("* to exit");
+                    printf("# to exit");
 
 
                     miniClear = 0;
@@ -5465,7 +5821,7 @@ void main(void) {
         if (tick == 2000) {
             clear = 1;
             state++;
-            state = state % 4;
+            state = state % 5;
             tick = 0;
         }
 
@@ -5476,45 +5832,295 @@ void main(void) {
     }
 }
 
+void forward(void){
 
-void rtc_set_time(void){
-    I2C_Master_Start();
-    I2C_Master_Write(0b11010000);
-    I2C_Master_Write(0x00);
+    LATBbits.LATB2 = 1 ;
+    LATBbits.LATB3 = 1 ;
+    _delay((unsigned long)((1300)*(10000000/4000000.0)));
+    LATBbits.LATB2 = 0 ;
+    _delay((unsigned long)((400)*(10000000/4000000.0)));
+    LATBbits.LATB3 = 0 ;
+    _delay((unsigned long)((1000)*(10000000/4000000.0)));
 
-
-    for(char i=0; i < 7; i++){
-        I2C_Master_Write(happynewyear[i]);
-    }
-
-    I2C_Master_Stop();
+    return;
 }
 
+void left(void){
+
+    LATBbits.LATB2 = 1 ;
+    _delay((unsigned long)((1100)*(10000000/4000000.0)));
+    LATBbits.LATB2 = 0 ;
+    _delay((unsigned long)((1000)*(10000000/4000000.0)));
+
+    return;
+}
+
+void right(void){
+
+    LATBbits.LATB3 = 1 ;
+    _delay((unsigned long)((1750)*(10000000/4000000.0)));
+    LATBbits.LATB3 = 0 ;
+    _delay((unsigned long)((1000)*(10000000/4000000.0)));
+
+    return;
+}
+
+void backdrive(void){
+
+    LATBbits.LATB2 = 1 ;
+    LATBbits.LATB3 = 1 ;
+    _delay((unsigned long)((1200)*(10000000/4000000.0)));
+    LATBbits.LATB3 = 0 ;
+    _delay((unsigned long)((400)*(10000000/4000000.0)));
+    LATBbits.LATB2 = 0 ;
+    _delay((unsigned long)((1000)*(10000000/4000000.0)));
+
+    return;
+}
+
+
+void backleft(void){
+
+    LATBbits.LATB3 = 1 ;
+    _delay((unsigned long)((1100)*(10000000/4000000.0)));
+    LATBbits.LATB3 = 0 ;
+    _delay((unsigned long)((1000)*(10000000/4000000.0)));
+
+    return;
+}
+
+void backright(void){
+
+    LATBbits.LATB2 = 1 ;
+    _delay((unsigned long)((1750)*(10000000/4000000.0)));
+    LATBbits.LATB2 = 0 ;
+    _delay((unsigned long)((1000)*(10000000/4000000.0)));
+
+    return;
+}
+
+int frontsensor(void){
+
+    int time= 0;
+    int front;
+
+    TMR1H = 0;
+    TMR1L = 0;
+
+    LATCbits.LATC1 = 1;
+    _delay((unsigned long)((10)*(10000000/4000000.0)));
+    LATCbits.LATC1 = 0;
+
+
+    while(!PORTCbits.RC2);
+    TMR1ON = 1;
+    time = 0;
+
+    while(PORTCbits.RC2 == 1 && time < 1000)
+    {
+        time ++;
+    }
+
+    TMR1ON = 0;
+
+    front = (TMR1L | (TMR1H<<8));
+    front = front/155;
+
+    return front;
+}
+
+int backsensor(void){
+
+    int time = 0;
+    int back;
+
+    TMR1H = 0;
+    TMR1L = 0;
+
+    LATAbits.LATA5 = 1;
+    _delay((unsigned long)((10)*(10000000/4000000.0)));
+    LATAbits.LATA5 = 0;
+
+    while(!PORTAbits.RA4);
+    TMR1ON = 1;
+
+    time = 0;
+
+    while(PORTAbits.RA4 == 1 && time < 1000)
+    {
+        time ++;
+    }
+
+    TMR1ON = 0;
+
+    back = (TMR1L | (TMR1H<<8));
+    back = back/130;
+
+    return back;
+}
+
+float readADC(char channel){
+    ADCON0 = (channel & 0x0F) << 2;
+    ADON = 1;
+    ADCON0bits.GO = 1;
+    while(ADCON0bits.GO_NOT_DONE){
+        continue;
+    }
+    return ((ADRESH << 8) | ADRESL) *5/1023.0;
+}
+
+void turnright(void) {
+    for (int i = 0; i<700; i++){
+        left();
+    }
+}
+
+void EEPROM_WriteByte(unsigned char eepromAddress, unsigned char eepromData) {
+
+unsigned char gie_Status;
+while(EECON1bits.WR){};
+    EEADR=eepromAddress;
+    EEDATA=eepromData;
+    WREN=1;
+    gie_Status = GIE;
+    GIE = 0;
+    EECON2=0x55;
+    EECON2=0xaa;
+    EECON1bits.WR=1;
+    GIE = gie_Status;
+    WREN=0;
+
+}
+
+unsigned char EEPROM_ReadByte(unsigned char eepromAddress) {
+
+    while(EECON1bits.RD || EECON1bits.WR);
+    EEADR=eepromAddress;
+    EECON1bits.RD = 1;
+    return(EEDATA);
+
+}
+
+void EEPROM_save(void){
+    int x;
+    if (EEPROM_ReadByte(0) < 32 && EEPROM_ReadByte(0) > -1)
+         x = EEPROM_ReadByte(0);
+    else {
+        EEPROM_WriteByte(0,0);
+        x = 0;
+    }
+    if (x == 31) {
+
+        EEPROM_WriteByte(0,0);
+        x = 0;
+
+    }
+
+    int shift = x * 33;
+
+
+    EEPROM_WriteByte((shift + 1),time);
+    EEPROM_WriteByte((shift + 2),Canister);
+    EEPROM_WriteByte((shift + 3),balls);
+
+
+    int temp;
+    for (int loop = 0; loop < 10; loop++){
+        temp = shift + 4 + loop;
+        EEPROM_WriteByte(temp , State[loop]);
+    }
+
+    for (int loop = 0; loop < 10; loop++){
+        temp = shift + 14 + loop;
+        EEPROM_WriteByte(temp, DistanceCanister[loop]);
+    }
+
+    for (int loop = 0; loop < 10; loop++){
+        temp = shift + 24 + loop;
+        EEPROM_WriteByte(temp, BallDispensed[loop]);
+    }
+
+    EEPROM_WriteByte(0,x+1);
+
+}
+
+void EEPROM_prev(int trial ){
+    int x;
+    if (EEPROM_ReadByte(0) < 32 && EEPROM_ReadByte(0) > -1)
+         x = EEPROM_ReadByte(0);
+    else {
+        EEPROM_WriteByte(0,0);
+        x = 0;
+    }
+
+
+    x = x - trial;
+    if (x < 0){
+        x = x + 31;
+    }
+
+
+    int shift = x * 33;
+
+
+    time = EEPROM_ReadByte(shift + 1);
+    Canister = EEPROM_ReadByte(shift + 2);
+    balls = EEPROM_ReadByte(shift + 3);
+
+
+    int temp;
+    for (int loop = 0; loop < 10; loop++){
+        temp = shift + 4 + loop;
+        State[loop] = EEPROM_ReadByte(temp);
+    }
+
+    for (int loop = 0; loop < 10; loop++){
+        temp = shift + 14 + loop;
+        DistanceCanister[loop] = EEPROM_ReadByte(temp);
+    }
+
+    for (int loop = 0; loop < 10; loop++){
+        temp = shift + 24 + loop;
+        BallDispensed[loop] = EEPROM_ReadByte(temp);
+    }
+}
 
 
 void __attribute__((picinterrupt(("")))) interruptHandler(void){
 
-    if(INT1IF){
+    keypress = (PORTB & 0xF0) >> 4;
 
+
+    if(TMR0IF){
+        timer++;
+        TMR0IF = 0;
+    }
+
+    if(INT1IF){
 
 
         INT1IF = 0;
 
-        unsigned char keypress = (PORTB & 0xF0) >> 4;
-
         if (keys[keypress] == 'A') {
 
             start = 1;
+
             return;
         }
 
-        if (keys[keypress] == '*') {
+        if (keys[keypress] == '#') {
 
             exit_key = 1;
             return;
         }
 
-        for ( int i = 0; i < Canister; i++ ) {
+        if (keys[keypress] == 'B') {
+
+            B_was_pressed = 1;
+            return;
+        }
+
+        for ( int i = 0; i < 10; i++ ) {
 
             if ((char)i + '0' == keys[keypress]) {
                 key_was_pressed = 1;
